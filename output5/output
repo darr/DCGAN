@@ -1,0 +1,800 @@
+Generator(
+  (main): Sequential(
+    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace)
+    (6): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace)
+    (9): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace)
+    (12): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (13): Tanh()
+  )
+)
+Discriminator(
+  (main): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): LeakyReLU(negative_slope=0.2, inplace)
+    (2): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (4): LeakyReLU(negative_slope=0.2, inplace)
+    (5): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): LeakyReLU(negative_slope=0.2, inplace)
+    (8): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (9): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.2, inplace)
+    (11): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (12): Sigmoid()
+  )
+)
+config:
+workers : 2
+learn_rate : 0.0002
+image_size : 64
+size_of_z_latent : 100
+beta1 : 0.5
+real_label : 1
+fake_label : 0
+number_channels : 3
+num_epochs : 5
+train_load_check_point_file : False
+data_path : data/celeba
+print_every : 100
+save_every : 500
+batch_size : 128
+number_gpus : 1
+device : cuda:0
+dataset : celeba
+number_of_discriminator_feature : 64
+manual_seed : 999
+number_of_generator_feature : 64
+[0/5]	[0/1583]	 Loss_D: 1.8240	 Loss_G: 4.6591	 D(x): 0.5079	 D(G(z)): 0.5771 / 0.0151 take_time: 0s
+[0/5]	[100/1583]	 Loss_D: 0.0156	 Loss_G: 29.0389	 D(x): 0.9897	 D(G(z)): 0.0000 / 0.0000 take_time: 10s
+[0/5]	[200/1583]	 Loss_D: 0.5896	 Loss_G: 5.6500	 D(x): 0.9378	 D(G(z)): 0.3422 / 0.0059 take_time: 20s
+[0/5]	[300/1583]	 Loss_D: 0.8225	 Loss_G: 3.2290	 D(x): 0.7026	 D(G(z)): 0.2324 / 0.0703 take_time: 31s
+[0/5]	[400/1583]	 Loss_D: 0.7656	 Loss_G: 6.8537	 D(x): 0.9070	 D(G(z)): 0.4065 / 0.0040 take_time: 41s
+[0/5]	[500/1583]	 Loss_D: 0.5938	 Loss_G: 6.8453	 D(x): 0.9419	 D(G(z)): 0.3640 / 0.0025 take_time: 51s
+[0/5]	[600/1583]	 Loss_D: 0.4435	 Loss_G: 4.1402	 D(x): 0.7950	 D(G(z)): 0.1251 / 0.0259 take_time: 61s
+[0/5]	[700/1583]	 Loss_D: 0.6063	 Loss_G: 5.9540	 D(x): 0.8598	 D(G(z)): 0.2811 / 0.0064 take_time: 72s
+[0/5]	[800/1583]	 Loss_D: 0.5157	 Loss_G: 3.4569	 D(x): 0.7474	 D(G(z)): 0.0993 / 0.0524 take_time: 82s
+[0/5]	[900/1583]	 Loss_D: 0.3460	 Loss_G: 3.8527	 D(x): 0.8802	 D(G(z)): 0.1588 / 0.0449 take_time: 92s
+[0/5]	[1000/1583]	 Loss_D: 0.4908	 Loss_G: 3.0598	 D(x): 0.7040	 D(G(z)): 0.0657 / 0.0709 take_time: 102s
+[0/5]	[1100/1583]	 Loss_D: 0.4428	 Loss_G: 3.4917	 D(x): 0.8084	 D(G(z)): 0.1588 / 0.0508 take_time: 113s
+[0/5]	[1200/1583]	 Loss_D: 0.4575	 Loss_G: 4.0225	 D(x): 0.8108	 D(G(z)): 0.1617 / 0.0330 take_time: 123s
+[0/5]	[1300/1583]	 Loss_D: 0.7117	 Loss_G: 5.4653	 D(x): 0.9165	 D(G(z)): 0.4127 / 0.0069 take_time: 133s
+[0/5]	[1400/1583]	 Loss_D: 0.4512	 Loss_G: 3.7440	 D(x): 0.8949	 D(G(z)): 0.2426 / 0.0415 take_time: 144s
+[0/5]	[1500/1583]	 Loss_D: 1.8323	 Loss_G: 1.9462	 D(x): 0.2611	 D(G(z)): 0.0188 / 0.2192 take_time: 154s
+[1/5]	[0/1583]	 Loss_D: 1.1205	 Loss_G: 2.3574	 D(x): 0.4476	 D(G(z)): 0.0064 / 0.1556 take_time: 163s
+[1/5]	[100/1583]	 Loss_D: 0.6809	 Loss_G: 5.8084	 D(x): 0.9362	 D(G(z)): 0.4067 / 0.0055 take_time: 173s
+[1/5]	[200/1583]	 Loss_D: 0.3394	 Loss_G: 3.4993	 D(x): 0.8218	 D(G(z)): 0.1062 / 0.0471 take_time: 183s
+[1/5]	[300/1583]	 Loss_D: 0.6411	 Loss_G: 2.2131	 D(x): 0.6254	 D(G(z)): 0.0611 / 0.1629 take_time: 193s
+[1/5]	[400/1583]	 Loss_D: 0.3363	 Loss_G: 3.3065	 D(x): 0.8451	 D(G(z)): 0.1246 / 0.0592 take_time: 204s
+[1/5]	[500/1583]	 Loss_D: 0.9748	 Loss_G: 5.7545	 D(x): 0.9699	 D(G(z)): 0.5104 / 0.0076 take_time: 214s
+[1/5]	[600/1583]	 Loss_D: 2.0259	 Loss_G: 6.1240	 D(x): 0.9820	 D(G(z)): 0.7999 / 0.0047 take_time: 225s
+[1/5]	[700/1583]	 Loss_D: 1.3296	 Loss_G: 0.7174	 D(x): 0.3939	 D(G(z)): 0.0130 / 0.5698 take_time: 235s
+[1/5]	[800/1583]	 Loss_D: 0.7574	 Loss_G: 1.8583	 D(x): 0.5666	 D(G(z)): 0.0612 / 0.2158 take_time: 245s
+[1/5]	[900/1583]	 Loss_D: 0.4574	 Loss_G: 2.7115	 D(x): 0.7592	 D(G(z)): 0.1281 / 0.0961 take_time: 256s
+[1/5]	[1000/1583]	 Loss_D: 0.4667	 Loss_G: 2.8000	 D(x): 0.7801	 D(G(z)): 0.1524 / 0.0913 take_time: 266s
+[1/5]	[1100/1583]	 Loss_D: 1.5710	 Loss_G: 0.7794	 D(x): 0.3037	 D(G(z)): 0.0261 / 0.5128 take_time: 276s
+[1/5]	[1200/1583]	 Loss_D: 0.5823	 Loss_G: 3.7518	 D(x): 0.8827	 D(G(z)): 0.3328 / 0.0350 take_time: 287s
+[1/5]	[1300/1583]	 Loss_D: 0.4585	 Loss_G: 2.3708	 D(x): 0.8078	 D(G(z)): 0.1878 / 0.1217 take_time: 297s
+[1/5]	[1400/1583]	 Loss_D: 0.3985	 Loss_G: 3.7904	 D(x): 0.8917	 D(G(z)): 0.2219 / 0.0328 take_time: 307s
+[1/5]	[1500/1583]	 Loss_D: 0.5102	 Loss_G: 3.1209	 D(x): 0.8177	 D(G(z)): 0.2224 / 0.0696 take_time: 318s
+[2/5]	[0/1583]	 Loss_D: 0.5618	 Loss_G: 2.7509	 D(x): 0.7790	 D(G(z)): 0.2230 / 0.0839 take_time: 326s
+[2/5]	[100/1583]	 Loss_D: 0.7841	 Loss_G: 4.1456	 D(x): 0.8907	 D(G(z)): 0.4366 / 0.0261 take_time: 337s
+[2/5]	[200/1583]	 Loss_D: 0.5735	 Loss_G: 2.8751	 D(x): 0.7880	 D(G(z)): 0.2501 / 0.0719 take_time: 347s
+[2/5]	[300/1583]	 Loss_D: 0.6908	 Loss_G: 2.0727	 D(x): 0.6857	 D(G(z)): 0.1995 / 0.1645 take_time: 357s
+[2/5]	[400/1583]	 Loss_D: 0.7125	 Loss_G: 2.0738	 D(x): 0.5937	 D(G(z)): 0.0886 / 0.1855 take_time: 368s
+[2/5]	[500/1583]	 Loss_D: 0.5734	 Loss_G: 1.8948	 D(x): 0.7288	 D(G(z)): 0.1789 / 0.1932 take_time: 378s
+[2/5]	[600/1583]	 Loss_D: 0.7484	 Loss_G: 3.6404	 D(x): 0.8678	 D(G(z)): 0.4060 / 0.0412 take_time: 388s
+[2/5]	[700/1583]	 Loss_D: 0.7351	 Loss_G: 1.4138	 D(x): 0.5589	 D(G(z)): 0.0724 / 0.2903 take_time: 399s
+[2/5]	[800/1583]	 Loss_D: 0.8900	 Loss_G: 1.2044	 D(x): 0.5122	 D(G(z)): 0.1037 / 0.3498 take_time: 409s
+[2/5]	[900/1583]	 Loss_D: 0.6723	 Loss_G: 1.8406	 D(x): 0.6304	 D(G(z)): 0.1247 / 0.1915 take_time: 419s
+[2/5]	[1000/1583]	 Loss_D: 2.1266	 Loss_G: 0.7479	 D(x): 0.1731	 D(G(z)): 0.0086 / 0.5623 take_time: 430s
+[2/5]	[1100/1583]	 Loss_D: 0.5261	 Loss_G: 3.4699	 D(x): 0.9171	 D(G(z)): 0.3249 / 0.0423 take_time: 440s
+[2/5]	[1200/1583]	 Loss_D: 0.8025	 Loss_G: 4.5903	 D(x): 0.9368	 D(G(z)): 0.4813 / 0.0184 take_time: 450s
+[2/5]	[1300/1583]	 Loss_D: 0.7747	 Loss_G: 2.4605	 D(x): 0.6660	 D(G(z)): 0.2376 / 0.1248 take_time: 461s
+[2/5]	[1400/1583]	 Loss_D: 0.7850	 Loss_G: 3.7349	 D(x): 0.8800	 D(G(z)): 0.4410 / 0.0343 take_time: 471s
+[2/5]	[1500/1583]	 Loss_D: 1.6100	 Loss_G: 4.9736	 D(x): 0.9757	 D(G(z)): 0.7501 / 0.0104 take_time: 482s
+[3/5]	[0/1583]	 Loss_D: 0.8762	 Loss_G: 2.3948	 D(x): 0.6400	 D(G(z)): 0.2711 / 0.1160 take_time: 490s
+[3/5]	[100/1583]	 Loss_D: 0.7368	 Loss_G: 1.0090	 D(x): 0.5670	 D(G(z)): 0.0929 / 0.4096 take_time: 500s
+[3/5]	[200/1583]	 Loss_D: 1.0415	 Loss_G: 1.5733	 D(x): 0.4327	 D(G(z)): 0.0447 / 0.2758 take_time: 511s
+[3/5]	[300/1583]	 Loss_D: 0.8132	 Loss_G: 3.9955	 D(x): 0.9195	 D(G(z)): 0.4680 / 0.0296 take_time: 521s
+[3/5]	[400/1583]	 Loss_D: 0.5179	 Loss_G: 3.8394	 D(x): 0.8853	 D(G(z)): 0.2931 / 0.0317 take_time: 532s
+[3/5]	[500/1583]	 Loss_D: 0.7055	 Loss_G: 2.2488	 D(x): 0.6995	 D(G(z)): 0.2425 / 0.1386 take_time: 542s
+[3/5]	[600/1583]	 Loss_D: 0.4999	 Loss_G: 1.8299	 D(x): 0.7057	 D(G(z)): 0.0964 / 0.2069 take_time: 552s
+[3/5]	[700/1583]	 Loss_D: 0.5357	 Loss_G: 2.7052	 D(x): 0.7973	 D(G(z)): 0.2319 / 0.0851 take_time: 563s
+[3/5]	[800/1583]	 Loss_D: 0.7086	 Loss_G: 1.9385	 D(x): 0.5834	 D(G(z)): 0.0881 / 0.1852 take_time: 573s
+[3/5]	[900/1583]	 Loss_D: 0.5819	 Loss_G: 2.5486	 D(x): 0.8236	 D(G(z)): 0.2852 / 0.1060 take_time: 583s
+[3/5]	[1000/1583]	 Loss_D: 0.5012	 Loss_G: 3.0147	 D(x): 0.8679	 D(G(z)): 0.2724 / 0.0639 take_time: 594s
+[3/5]	[1100/1583]	 Loss_D: 0.4240	 Loss_G: 2.8456	 D(x): 0.8098	 D(G(z)): 0.1697 / 0.0721 take_time: 604s
+[3/5]	[1200/1583]	 Loss_D: 0.8556	 Loss_G: 1.2906	 D(x): 0.5089	 D(G(z)): 0.0716 / 0.3289 take_time: 614s
+[3/5]	[1300/1583]	 Loss_D: 0.5259	 Loss_G: 2.0491	 D(x): 0.7340	 D(G(z)): 0.1582 / 0.1624 take_time: 625s
+[3/5]	[1400/1583]	 Loss_D: 0.8546	 Loss_G: 1.1696	 D(x): 0.5375	 D(G(z)): 0.1208 / 0.3806 take_time: 635s
+[3/5]	[1500/1583]	 Loss_D: 0.5826	 Loss_G: 1.8829	 D(x): 0.7658	 D(G(z)): 0.2370 / 0.1849 take_time: 646s
+[4/5]	[0/1583]	 Loss_D: 0.8284	 Loss_G: 1.8976	 D(x): 0.6938	 D(G(z)): 0.2937 / 0.1926 take_time: 654s
+[4/5]	[100/1583]	 Loss_D: 0.7026	 Loss_G: 1.8537	 D(x): 0.5655	 D(G(z)): 0.0519 / 0.2129 take_time: 665s
+[4/5]	[200/1583]	 Loss_D: 0.6518	 Loss_G: 3.4710	 D(x): 0.8818	 D(G(z)): 0.3725 / 0.0416 take_time: 675s
+[4/5]	[300/1583]	 Loss_D: 0.6932	 Loss_G: 2.0111	 D(x): 0.6476	 D(G(z)): 0.1643 / 0.1742 take_time: 685s
+[4/5]	[400/1583]	 Loss_D: 0.4973	 Loss_G: 2.3574	 D(x): 0.7249	 D(G(z)): 0.1185 / 0.1244 take_time: 696s
+[4/5]	[500/1583]	 Loss_D: 0.5982	 Loss_G: 3.2873	 D(x): 0.9013	 D(G(z)): 0.3589 / 0.0502 take_time: 706s
+[4/5]	[600/1583]	 Loss_D: 0.8792	 Loss_G: 3.7018	 D(x): 0.9091	 D(G(z)): 0.5026 / 0.0339 take_time: 716s
+[4/5]	[700/1583]	 Loss_D: 0.6371	 Loss_G: 3.4879	 D(x): 0.8373	 D(G(z)): 0.3244 / 0.0424 take_time: 727s
+[4/5]	[800/1583]	 Loss_D: 0.6111	 Loss_G: 2.2688	 D(x): 0.7094	 D(G(z)): 0.1789 / 0.1348 take_time: 737s
+[4/5]	[900/1583]	 Loss_D: 0.6824	 Loss_G: 1.6499	 D(x): 0.7333	 D(G(z)): 0.2685 / 0.2261 take_time: 748s
+[4/5]	[1000/1583]	 Loss_D: 0.9116	 Loss_G: 3.9022	 D(x): 0.8942	 D(G(z)): 0.5039 / 0.0276 take_time: 758s
+[4/5]	[1100/1583]	 Loss_D: 0.5052	 Loss_G: 2.2957	 D(x): 0.7979	 D(G(z)): 0.2112 / 0.1294 take_time: 768s
+[4/5]	[1200/1583]	 Loss_D: 0.8370	 Loss_G: 1.7528	 D(x): 0.5186	 D(G(z)): 0.0405 / 0.2332 take_time: 779s
+[4/5]	[1300/1583]	 Loss_D: 0.8391	 Loss_G: 1.5303	 D(x): 0.5668	 D(G(z)): 0.1409 / 0.2662 take_time: 789s
+[4/5]	[1400/1583]	 Loss_D: 0.5122	 Loss_G: 2.3101	 D(x): 0.7231	 D(G(z)): 0.1336 / 0.1267 take_time: 799s
+[4/5]	[1500/1583]	 Loss_D: 0.4663	 Loss_G: 2.7174	 D(x): 0.8295	 D(G(z)): 0.2145 / 0.0877 take_time: 810s
+Generator(
+  (main): Sequential(
+    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace)
+    (6): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace)
+    (9): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace)
+    (12): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (13): Tanh()
+  )
+)
+Discriminator(
+  (main): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): LeakyReLU(negative_slope=0.2, inplace)
+    (2): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (4): LeakyReLU(negative_slope=0.2, inplace)
+    (5): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): LeakyReLU(negative_slope=0.2, inplace)
+    (8): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (9): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.2, inplace)
+    (11): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (12): Sigmoid()
+  )
+)
+config:
+train_load_check_point_file : False
+num_epochs : 10
+save_every : 500
+number_of_discriminator_feature : 64
+beta1 : 0.5
+size_of_z_latent : 100
+device : cuda:0
+manual_seed : 999
+number_gpus : 1
+print_every : 100
+number_of_generator_feature : 64
+learn_rate : 0.0002
+data_path : data/celeba
+image_size : 64
+dataset : celeba
+workers : 2
+number_channels : 3
+batch_size : 128
+fake_label : 0
+real_label : 1
+[0/10]	[0/1583]	 Loss_D: 1.7768	 Loss_G: 4.8827	 D(x): 0.5369	 D(G(z)): 0.5771 / 0.0122 take_time: 0s
+[0/10]	[100/1583]	 Loss_D: 1.8430	 Loss_G: 15.0859	 D(x): 0.9448	 D(G(z)): 0.6154 / 0.0000 take_time: 10s
+[0/10]	[200/1583]	 Loss_D: 0.3313	 Loss_G: 3.1644	 D(x): 0.8945	 D(G(z)): 0.1537 / 0.0650 take_time: 21s
+[0/10]	[300/1583]	 Loss_D: 1.6288	 Loss_G: 1.4717	 D(x): 0.4188	 D(G(z)): 0.1365 / 0.3556 take_time: 31s
+[0/10]	[400/1583]	 Loss_D: 0.3484	 Loss_G: 7.7319	 D(x): 0.7617	 D(G(z)): 0.0078 / 0.0023 take_time: 42s
+[0/10]	[500/1583]	 Loss_D: 0.5222	 Loss_G: 4.0892	 D(x): 0.7027	 D(G(z)): 0.0274 / 0.0331 take_time: 52s
+[0/10]	[600/1583]	 Loss_D: 0.5866	 Loss_G: 4.9856	 D(x): 0.9302	 D(G(z)): 0.3506 / 0.0137 take_time: 63s
+[0/10]	[700/1583]	 Loss_D: 0.4845	 Loss_G: 3.5370	 D(x): 0.7410	 D(G(z)): 0.0791 / 0.0548 take_time: 73s
+[0/10]	[800/1583]	 Loss_D: 0.6761	 Loss_G: 6.6238	 D(x): 0.9383	 D(G(z)): 0.4001 / 0.0037 take_time: 83s
+[0/10]	[900/1583]	 Loss_D: 0.3497	 Loss_G: 3.2890	 D(x): 0.8721	 D(G(z)): 0.1346 / 0.0750 take_time: 94s
+[0/10]	[1000/1583]	 Loss_D: 0.8740	 Loss_G: 3.8858	 D(x): 0.5433	 D(G(z)): 0.0119 / 0.0425 take_time: 104s
+[0/10]	[1100/1583]	 Loss_D: 0.6033	 Loss_G: 6.2340	 D(x): 0.9312	 D(G(z)): 0.3581 / 0.0039 take_time: 114s
+[0/10]	[1200/1583]	 Loss_D: 0.7312	 Loss_G: 3.1691	 D(x): 0.5853	 D(G(z)): 0.0125 / 0.0863 take_time: 125s
+[0/10]	[1300/1583]	 Loss_D: 0.7595	 Loss_G: 2.5779	 D(x): 0.5900	 D(G(z)): 0.0371 / 0.1218 take_time: 135s
+[0/10]	[1400/1583]	 Loss_D: 1.3862	 Loss_G: 7.2758	 D(x): 0.9559	 D(G(z)): 0.6525 / 0.0040 take_time: 145s
+[0/10]	[1500/1583]	 Loss_D: 0.7242	 Loss_G: 5.4379	 D(x): 0.8376	 D(G(z)): 0.3636 / 0.0114 take_time: 156s
+[1/10]	[0/1583]	 Loss_D: 0.5500	 Loss_G: 3.4444	 D(x): 0.8278	 D(G(z)): 0.2529 / 0.0464 take_time: 164s
+[1/10]	[100/1583]	 Loss_D: 0.5760	 Loss_G: 1.8171	 D(x): 0.6818	 D(G(z)): 0.0920 / 0.2244 take_time: 174s
+[1/10]	[200/1583]	 Loss_D: 0.4178	 Loss_G: 2.8926	 D(x): 0.7701	 D(G(z)): 0.0778 / 0.0818 take_time: 185s
+[1/10]	[300/1583]	 Loss_D: 1.7615	 Loss_G: 7.1150	 D(x): 0.9516	 D(G(z)): 0.7505 / 0.0018 take_time: 195s
+[1/10]	[400/1583]	 Loss_D: 1.0310	 Loss_G: 2.0096	 D(x): 0.4567	 D(G(z)): 0.0109 / 0.1881 take_time: 206s
+[1/10]	[500/1583]	 Loss_D: 1.1282	 Loss_G: 6.9487	 D(x): 0.9561	 D(G(z)): 0.5952 / 0.0020 take_time: 216s
+[1/10]	[600/1583]	 Loss_D: 0.4351	 Loss_G: 3.6949	 D(x): 0.8442	 D(G(z)): 0.2029 / 0.0351 take_time: 226s
+[1/10]	[700/1583]	 Loss_D: 1.1410	 Loss_G: 6.3499	 D(x): 0.9758	 D(G(z)): 0.6120 / 0.0057 take_time: 237s
+[1/10]	[800/1583]	 Loss_D: 0.7264	 Loss_G: 1.8385	 D(x): 0.5995	 D(G(z)): 0.0869 / 0.2081 take_time: 247s
+[1/10]	[900/1583]	 Loss_D: 0.6459	 Loss_G: 3.9805	 D(x): 0.8394	 D(G(z)): 0.3239 / 0.0295 take_time: 257s
+[1/10]	[1000/1583]	 Loss_D: 0.8131	 Loss_G: 2.1691	 D(x): 0.5185	 D(G(z)): 0.0202 / 0.1566 take_time: 268s
+[1/10]	[1100/1583]	 Loss_D: 0.6177	 Loss_G: 2.1219	 D(x): 0.7013	 D(G(z)): 0.1760 / 0.1563 take_time: 278s
+[1/10]	[1200/1583]	 Loss_D: 0.4392	 Loss_G: 2.3771	 D(x): 0.7584	 D(G(z)): 0.1140 / 0.1252 take_time: 288s
+[1/10]	[1300/1583]	 Loss_D: 0.6346	 Loss_G: 4.0343	 D(x): 0.8662	 D(G(z)): 0.3517 / 0.0258 take_time: 299s
+[1/10]	[1400/1583]	 Loss_D: 0.5291	 Loss_G: 3.4607	 D(x): 0.9056	 D(G(z)): 0.3169 / 0.0425 take_time: 309s
+[1/10]	[1500/1583]	 Loss_D: 0.8352	 Loss_G: 1.8819	 D(x): 0.5564	 D(G(z)): 0.1015 / 0.2074 take_time: 320s
+[2/10]	[0/1583]	 Loss_D: 0.3793	 Loss_G: 2.8209	 D(x): 0.8457	 D(G(z)): 0.1659 / 0.0789 take_time: 328s
+[2/10]	[100/1583]	 Loss_D: 0.4206	 Loss_G: 2.2343	 D(x): 0.7827	 D(G(z)): 0.1322 / 0.1374 take_time: 338s
+[2/10]	[200/1583]	 Loss_D: 0.5421	 Loss_G: 3.0275	 D(x): 0.8458	 D(G(z)): 0.2749 / 0.0672 take_time: 349s
+[2/10]	[300/1583]	 Loss_D: 0.6897	 Loss_G: 1.4588	 D(x): 0.6003	 D(G(z)): 0.1097 / 0.2788 take_time: 359s
+[2/10]	[400/1583]	 Loss_D: 0.6200	 Loss_G: 2.7439	 D(x): 0.7906	 D(G(z)): 0.2820 / 0.0841 take_time: 370s
+[2/10]	[500/1583]	 Loss_D: 0.6377	 Loss_G: 1.8415	 D(x): 0.6212	 D(G(z)): 0.0928 / 0.1994 take_time: 380s
+[2/10]	[600/1583]	 Loss_D: 0.6266	 Loss_G: 3.6377	 D(x): 0.9195	 D(G(z)): 0.3685 / 0.0429 take_time: 391s
+[2/10]	[700/1583]	 Loss_D: 0.6543	 Loss_G: 2.1233	 D(x): 0.6311	 D(G(z)): 0.1168 / 0.1606 take_time: 401s
+[2/10]	[800/1583]	 Loss_D: 0.6563	 Loss_G: 2.6923	 D(x): 0.7671	 D(G(z)): 0.2804 / 0.0903 take_time: 411s
+[2/10]	[900/1583]	 Loss_D: 0.5474	 Loss_G: 2.5844	 D(x): 0.7751	 D(G(z)): 0.2169 / 0.0988 take_time: 422s
+[2/10]	[1000/1583]	 Loss_D: 0.7950	 Loss_G: 4.2077	 D(x): 0.8876	 D(G(z)): 0.4443 / 0.0217 take_time: 433s
+[2/10]	[1100/1583]	 Loss_D: 0.4745	 Loss_G: 2.3493	 D(x): 0.7735	 D(G(z)): 0.1662 / 0.1203 take_time: 443s
+[2/10]	[1200/1583]	 Loss_D: 0.6803	 Loss_G: 2.0621	 D(x): 0.6618	 D(G(z)): 0.1587 / 0.1726 take_time: 454s
+[2/10]	[1300/1583]	 Loss_D: 0.3956	 Loss_G: 2.6851	 D(x): 0.8188	 D(G(z)): 0.1571 / 0.0877 take_time: 466s
+[2/10]	[1400/1583]	 Loss_D: 0.4995	 Loss_G: 2.5802	 D(x): 0.7516	 D(G(z)): 0.1515 / 0.1083 take_time: 477s
+[2/10]	[1500/1583]	 Loss_D: 1.3787	 Loss_G: 5.1422	 D(x): 0.9684	 D(G(z)): 0.6786 / 0.0089 take_time: 489s
+[3/10]	[0/1583]	 Loss_D: 0.5092	 Loss_G: 3.1327	 D(x): 0.8562	 D(G(z)): 0.2674 / 0.0583 take_time: 498s
+[3/10]	[100/1583]	 Loss_D: 0.4787	 Loss_G: 2.9678	 D(x): 0.8581	 D(G(z)): 0.2505 / 0.0674 take_time: 509s
+[3/10]	[200/1583]	 Loss_D: 0.5555	 Loss_G: 3.1331	 D(x): 0.8566	 D(G(z)): 0.3025 / 0.0569 take_time: 520s
+[3/10]	[300/1583]	 Loss_D: 0.8061	 Loss_G: 3.4627	 D(x): 0.8577	 D(G(z)): 0.4201 / 0.0443 take_time: 531s
+[3/10]	[400/1583]	 Loss_D: 1.4938	 Loss_G: 0.2505	 D(x): 0.2796	 D(G(z)): 0.0249 / 0.7971 take_time: 542s
+[3/10]	[500/1583]	 Loss_D: 0.6491	 Loss_G: 2.9244	 D(x): 0.9165	 D(G(z)): 0.3892 / 0.0743 take_time: 553s
+[3/10]	[600/1583]	 Loss_D: 2.6186	 Loss_G: 0.6390	 D(x): 0.1199	 D(G(z)): 0.0082 / 0.5647 take_time: 564s
+[3/10]	[700/1583]	 Loss_D: 0.6092	 Loss_G: 3.0414	 D(x): 0.7675	 D(G(z)): 0.2457 / 0.0700 take_time: 575s
+[3/10]	[800/1583]	 Loss_D: 0.8113	 Loss_G: 3.1942	 D(x): 0.8646	 D(G(z)): 0.4275 / 0.0576 take_time: 586s
+[3/10]	[900/1583]	 Loss_D: 0.5354	 Loss_G: 2.2442	 D(x): 0.7520	 D(G(z)): 0.1913 / 0.1358 take_time: 597s
+[3/10]	[1000/1583]	 Loss_D: 0.5449	 Loss_G: 3.3014	 D(x): 0.8763	 D(G(z)): 0.3120 / 0.0457 take_time: 608s
+[3/10]	[1100/1583]	 Loss_D: 0.5508	 Loss_G: 2.7660	 D(x): 0.7575	 D(G(z)): 0.2002 / 0.0858 take_time: 619s
+[3/10]	[1200/1583]	 Loss_D: 0.5357	 Loss_G: 1.9100	 D(x): 0.6858	 D(G(z)): 0.1083 / 0.1905 take_time: 630s
+[3/10]	[1300/1583]	 Loss_D: 0.7928	 Loss_G: 1.8933	 D(x): 0.6069	 D(G(z)): 0.1757 / 0.1923 take_time: 641s
+[3/10]	[1400/1583]	 Loss_D: 0.6403	 Loss_G: 2.5010	 D(x): 0.6911	 D(G(z)): 0.1828 / 0.1139 take_time: 652s
+[3/10]	[1500/1583]	 Loss_D: 0.9288	 Loss_G: 4.1813	 D(x): 0.9122	 D(G(z)): 0.5208 / 0.0229 take_time: 663s
+[4/10]	[0/1583]	 Loss_D: 1.2653	 Loss_G: 0.6530	 D(x): 0.3816	 D(G(z)): 0.0649 / 0.5674 take_time: 673s
+[4/10]	[100/1583]	 Loss_D: 0.6878	 Loss_G: 3.0469	 D(x): 0.8124	 D(G(z)): 0.3408 / 0.0649 take_time: 684s
+[4/10]	[200/1583]	 Loss_D: 0.9139	 Loss_G: 4.1218	 D(x): 0.9244	 D(G(z)): 0.5019 / 0.0238 take_time: 695s
+[4/10]	[300/1583]	 Loss_D: 0.5735	 Loss_G: 1.9302	 D(x): 0.7047	 D(G(z)): 0.1632 / 0.1815 take_time: 706s
+[4/10]	[400/1583]	 Loss_D: 0.4973	 Loss_G: 3.7522	 D(x): 0.9094	 D(G(z)): 0.3031 / 0.0337 take_time: 717s
+[4/10]	[500/1583]	 Loss_D: 1.0186	 Loss_G: 1.4832	 D(x): 0.4812	 D(G(z)): 0.1210 / 0.2768 take_time: 728s
+[4/10]	[600/1583]	 Loss_D: 0.7291	 Loss_G: 3.6629	 D(x): 0.8985	 D(G(z)): 0.4141 / 0.0352 take_time: 739s
+[4/10]	[700/1583]	 Loss_D: 0.8262	 Loss_G: 4.1116	 D(x): 0.9044	 D(G(z)): 0.4773 / 0.0216 take_time: 750s
+[4/10]	[800/1583]	 Loss_D: 0.5130	 Loss_G: 3.3284	 D(x): 0.8748	 D(G(z)): 0.2820 / 0.0498 take_time: 761s
+[4/10]	[900/1583]	 Loss_D: 0.5316	 Loss_G: 2.5724	 D(x): 0.8163	 D(G(z)): 0.2508 / 0.0935 take_time: 772s
+[4/10]	[1000/1583]	 Loss_D: 0.5575	 Loss_G: 2.4447	 D(x): 0.7716	 D(G(z)): 0.2254 / 0.1072 take_time: 783s
+[4/10]	[1100/1583]	 Loss_D: 0.6616	 Loss_G: 1.8528	 D(x): 0.6480	 D(G(z)): 0.1503 / 0.1887 take_time: 795s
+[4/10]	[1200/1583]	 Loss_D: 0.5207	 Loss_G: 2.2108	 D(x): 0.7448	 D(G(z)): 0.1707 / 0.1396 take_time: 806s
+[4/10]	[1300/1583]	 Loss_D: 0.4627	 Loss_G: 3.8269	 D(x): 0.8687	 D(G(z)): 0.2473 / 0.0274 take_time: 817s
+[4/10]	[1400/1583]	 Loss_D: 0.6923	 Loss_G: 2.1035	 D(x): 0.5868	 D(G(z)): 0.0818 / 0.1594 take_time: 828s
+[4/10]	[1500/1583]	 Loss_D: 0.4508	 Loss_G: 2.0243	 D(x): 0.7591	 D(G(z)): 0.1373 / 0.1588 take_time: 839s
+[5/10]	[0/1583]	 Loss_D: 0.4092	 Loss_G: 3.1264	 D(x): 0.8653	 D(G(z)): 0.2093 / 0.0563 take_time: 848s
+[5/10]	[100/1583]	 Loss_D: 0.8528	 Loss_G: 1.6455	 D(x): 0.5222	 D(G(z)): 0.0677 / 0.2538 take_time: 859s
+[5/10]	[200/1583]	 Loss_D: 0.4185	 Loss_G: 2.6511	 D(x): 0.8114	 D(G(z)): 0.1637 / 0.0937 take_time: 870s
+[5/10]	[300/1583]	 Loss_D: 0.5020	 Loss_G: 2.6671	 D(x): 0.8659	 D(G(z)): 0.2758 / 0.0867 take_time: 881s
+[5/10]	[400/1583]	 Loss_D: 0.5812	 Loss_G: 1.3603	 D(x): 0.6322	 D(G(z)): 0.0645 / 0.2989 take_time: 892s
+[5/10]	[500/1583]	 Loss_D: 0.6120	 Loss_G: 2.7311	 D(x): 0.7843	 D(G(z)): 0.2756 / 0.0841 take_time: 903s
+[5/10]	[600/1583]	 Loss_D: 0.5690	 Loss_G: 1.9980	 D(x): 0.7000	 D(G(z)): 0.1397 / 0.1717 take_time: 914s
+[5/10]	[700/1583]	 Loss_D: 0.6048	 Loss_G: 2.2502	 D(x): 0.7958	 D(G(z)): 0.2727 / 0.1229 take_time: 925s
+[5/10]	[800/1583]	 Loss_D: 0.5251	 Loss_G: 2.5594	 D(x): 0.8333	 D(G(z)): 0.2636 / 0.0957 take_time: 936s
+[5/10]	[900/1583]	 Loss_D: 0.8228	 Loss_G: 4.3853	 D(x): 0.9216	 D(G(z)): 0.4630 / 0.0176 take_time: 947s
+[5/10]	[1000/1583]	 Loss_D: 0.4306	 Loss_G: 3.6395	 D(x): 0.8798	 D(G(z)): 0.2389 / 0.0346 take_time: 958s
+[5/10]	[1100/1583]	 Loss_D: 1.0283	 Loss_G: 1.1043	 D(x): 0.4248	 D(G(z)): 0.0294 / 0.3934 take_time: 969s
+[5/10]	[1200/1583]	 Loss_D: 0.3948	 Loss_G: 3.1311	 D(x): 0.8775	 D(G(z)): 0.2162 / 0.0548 take_time: 980s
+[5/10]	[1300/1583]	 Loss_D: 0.6542	 Loss_G: 1.2331	 D(x): 0.6344	 D(G(z)): 0.1226 / 0.3302 take_time: 991s
+[5/10]	[1400/1583]	 Loss_D: 1.1130	 Loss_G: 1.1009	 D(x): 0.4123	 D(G(z)): 0.0223 / 0.3898 take_time: 1002s
+[5/10]	[1500/1583]	 Loss_D: 0.4626	 Loss_G: 2.1847	 D(x): 0.7838	 D(G(z)): 0.1656 / 0.1441 take_time: 1013s
+[6/10]	[0/1583]	 Loss_D: 0.7799	 Loss_G: 2.2643	 D(x): 0.7005	 D(G(z)): 0.2775 / 0.1305 take_time: 1023s
+[6/10]	[100/1583]	 Loss_D: 0.4377	 Loss_G: 3.0514	 D(x): 0.8217	 D(G(z)): 0.1806 / 0.0662 take_time: 1034s
+[6/10]	[200/1583]	 Loss_D: 0.7539	 Loss_G: 3.8326	 D(x): 0.9141	 D(G(z)): 0.4460 / 0.0281 take_time: 1045s
+[6/10]	[300/1583]	 Loss_D: 0.4584	 Loss_G: 2.8263	 D(x): 0.8380	 D(G(z)): 0.2173 / 0.0775 take_time: 1056s
+[6/10]	[400/1583]	 Loss_D: 0.7968	 Loss_G: 1.0835	 D(x): 0.5267	 D(G(z)): 0.0363 / 0.3984 take_time: 1067s
+[6/10]	[500/1583]	 Loss_D: 0.5264	 Loss_G: 1.9629	 D(x): 0.6683	 D(G(z)): 0.0563 / 0.1836 take_time: 1078s
+[6/10]	[600/1583]	 Loss_D: 0.5620	 Loss_G: 2.8365	 D(x): 0.7804	 D(G(z)): 0.2164 / 0.0837 take_time: 1089s
+[6/10]	[700/1583]	 Loss_D: 1.1558	 Loss_G: 4.2663	 D(x): 0.9433	 D(G(z)): 0.5909 / 0.0245 take_time: 1100s
+[6/10]	[800/1583]	 Loss_D: 0.4466	 Loss_G: 2.9247	 D(x): 0.8356	 D(G(z)): 0.2048 / 0.0701 take_time: 1111s
+[6/10]	[900/1583]	 Loss_D: 0.5454	 Loss_G: 3.4163	 D(x): 0.8594	 D(G(z)): 0.2873 / 0.0463 take_time: 1122s
+[6/10]	[1000/1583]	 Loss_D: 0.5196	 Loss_G: 3.9583	 D(x): 0.9430	 D(G(z)): 0.3412 / 0.0258 take_time: 1133s
+[6/10]	[1100/1583]	 Loss_D: 0.3949	 Loss_G: 3.0513	 D(x): 0.8826	 D(G(z)): 0.2111 / 0.0637 take_time: 1144s
+[6/10]	[1200/1583]	 Loss_D: 1.1488	 Loss_G: 1.2230	 D(x): 0.3912	 D(G(z)): 0.0212 / 0.3562 take_time: 1155s
+[6/10]	[1300/1583]	 Loss_D: 0.6972	 Loss_G: 4.2807	 D(x): 0.9506	 D(G(z)): 0.4329 / 0.0202 take_time: 1166s
+[6/10]	[1400/1583]	 Loss_D: 0.4249	 Loss_G: 2.3824	 D(x): 0.7274	 D(G(z)): 0.0593 / 0.1319 take_time: 1177s
+[6/10]	[1500/1583]	 Loss_D: 0.9862	 Loss_G: 5.5660	 D(x): 0.9541	 D(G(z)): 0.5465 / 0.0062 take_time: 1188s
+[7/10]	[0/1583]	 Loss_D: 0.6480	 Loss_G: 4.0688	 D(x): 0.8441	 D(G(z)): 0.3373 / 0.0237 take_time: 1197s
+[7/10]	[100/1583]	 Loss_D: 0.4961	 Loss_G: 2.2345	 D(x): 0.6988	 D(G(z)): 0.0843 / 0.1457 take_time: 1209s
+[7/10]	[200/1583]	 Loss_D: 0.4035	 Loss_G: 2.4204	 D(x): 0.8477	 D(G(z)): 0.1822 / 0.1138 take_time: 1220s
+[7/10]	[300/1583]	 Loss_D: 0.8671	 Loss_G: 1.4236	 D(x): 0.5286	 D(G(z)): 0.0716 / 0.3113 take_time: 1232s
+[7/10]	[400/1583]	 Loss_D: 0.5358	 Loss_G: 4.8391	 D(x): 0.9283	 D(G(z)): 0.3301 / 0.0115 take_time: 1244s
+[7/10]	[500/1583]	 Loss_D: 0.5733	 Loss_G: 2.3538	 D(x): 0.6487	 D(G(z)): 0.0638 / 0.1291 take_time: 1255s
+[7/10]	[600/1583]	 Loss_D: 0.3788	 Loss_G: 2.4704	 D(x): 0.8352	 D(G(z)): 0.1589 / 0.1040 take_time: 1267s
+[7/10]	[700/1583]	 Loss_D: 0.3857	 Loss_G: 2.8953	 D(x): 0.8855	 D(G(z)): 0.2085 / 0.0744 take_time: 1278s
+[7/10]	[800/1583]	 Loss_D: 0.4059	 Loss_G: 2.3395	 D(x): 0.7449	 D(G(z)): 0.0636 / 0.1271 take_time: 1290s
+[7/10]	[900/1583]	 Loss_D: 0.6686	 Loss_G: 2.1123	 D(x): 0.5811	 D(G(z)): 0.0348 / 0.1788 take_time: 1301s
+[7/10]	[1000/1583]	 Loss_D: 0.4181	 Loss_G: 2.7157	 D(x): 0.7895	 D(G(z)): 0.1332 / 0.0849 take_time: 1313s
+[7/10]	[1100/1583]	 Loss_D: 0.4625	 Loss_G: 2.7084	 D(x): 0.8677	 D(G(z)): 0.2402 / 0.0893 take_time: 1325s
+[7/10]	[1200/1583]	 Loss_D: 0.3530	 Loss_G: 2.0679	 D(x): 0.8043	 D(G(z)): 0.1069 / 0.1580 take_time: 1336s
+[7/10]	[1300/1583]	 Loss_D: 0.9542	 Loss_G: 0.9724	 D(x): 0.4640	 D(G(z)): 0.0346 / 0.4628 take_time: 1348s
+[7/10]	[1400/1583]	 Loss_D: 0.8637	 Loss_G: 5.7442	 D(x): 0.9629	 D(G(z)): 0.4948 / 0.0053 take_time: 1359s
+[7/10]	[1500/1583]	 Loss_D: 0.4415	 Loss_G: 4.0035	 D(x): 0.9409	 D(G(z)): 0.2907 / 0.0249 take_time: 1371s
+[8/10]	[0/1583]	 Loss_D: 0.8036	 Loss_G: 5.1881	 D(x): 0.8870	 D(G(z)): 0.4394 / 0.0093 take_time: 1381s
+[8/10]	[100/1583]	 Loss_D: 0.3768	 Loss_G: 2.6513	 D(x): 0.8218	 D(G(z)): 0.1421 / 0.0964 take_time: 1392s
+[8/10]	[200/1583]	 Loss_D: 0.6599	 Loss_G: 5.2440	 D(x): 0.9690	 D(G(z)): 0.4176 / 0.0081 take_time: 1404s
+[8/10]	[300/1583]	 Loss_D: 0.5887	 Loss_G: 3.4057	 D(x): 0.8161	 D(G(z)): 0.2678 / 0.0539 take_time: 1416s
+[8/10]	[400/1583]	 Loss_D: 0.4811	 Loss_G: 1.7361	 D(x): 0.6984	 D(G(z)): 0.0654 / 0.2343 take_time: 1427s
+[8/10]	[500/1583]	 Loss_D: 0.4756	 Loss_G: 2.6837	 D(x): 0.7614	 D(G(z)): 0.1441 / 0.0928 take_time: 1439s
+[8/10]	[600/1583]	 Loss_D: 0.4034	 Loss_G: 4.1797	 D(x): 0.9547	 D(G(z)): 0.2765 / 0.0199 take_time: 1450s
+[8/10]	[700/1583]	 Loss_D: 0.3212	 Loss_G: 3.1557	 D(x): 0.9103	 D(G(z)): 0.1797 / 0.0611 take_time: 1462s
+[8/10]	[800/1583]	 Loss_D: 0.6129	 Loss_G: 3.5808	 D(x): 0.9465	 D(G(z)): 0.3807 / 0.0384 take_time: 1474s
+[8/10]	[900/1583]	 Loss_D: 0.3045	 Loss_G: 3.6568	 D(x): 0.9152	 D(G(z)): 0.1819 / 0.0345 take_time: 1485s
+[8/10]	[1000/1583]	 Loss_D: 0.3793	 Loss_G: 3.1738	 D(x): 0.8483	 D(G(z)): 0.1646 / 0.0609 take_time: 1497s
+[8/10]	[1100/1583]	 Loss_D: 0.3735	 Loss_G: 2.7892	 D(x): 0.8058	 D(G(z)): 0.1143 / 0.0868 take_time: 1508s
+[8/10]	[1200/1583]	 Loss_D: 0.4092	 Loss_G: 2.4509	 D(x): 0.7904	 D(G(z)): 0.1339 / 0.1150 take_time: 1520s
+[8/10]	[1300/1583]	 Loss_D: 1.7490	 Loss_G: 6.1338	 D(x): 0.9765	 D(G(z)): 0.7521 / 0.0038 take_time: 1531s
+[8/10]	[1400/1583]	 Loss_D: 0.5018	 Loss_G: 4.2710	 D(x): 0.9316	 D(G(z)): 0.3132 / 0.0203 take_time: 1543s
+[8/10]	[1500/1583]	 Loss_D: 0.4266	 Loss_G: 2.0571	 D(x): 0.7492	 D(G(z)): 0.0940 / 0.1768 take_time: 1555s
+[9/10]	[0/1583]	 Loss_D: 0.2777	 Loss_G: 3.7346	 D(x): 0.9285	 D(G(z)): 0.1705 / 0.0294 take_time: 1564s
+[9/10]	[100/1583]	 Loss_D: 1.7947	 Loss_G: 0.8820	 D(x): 0.2886	 D(G(z)): 0.0529 / 0.5023 take_time: 1576s
+[9/10]	[200/1583]	 Loss_D: 0.4918	 Loss_G: 2.0611	 D(x): 0.6921	 D(G(z)): 0.0584 / 0.1758 take_time: 1587s
+[9/10]	[300/1583]	 Loss_D: 0.2821	 Loss_G: 2.7345	 D(x): 0.8481	 D(G(z)): 0.0884 / 0.0971 take_time: 1599s
+[9/10]	[400/1583]	 Loss_D: 0.3167	 Loss_G: 2.0936	 D(x): 0.7922	 D(G(z)): 0.0541 / 0.1696 take_time: 1611s
+[9/10]	[500/1583]	 Loss_D: 0.3994	 Loss_G: 4.0010	 D(x): 0.9159	 D(G(z)): 0.2319 / 0.0261 take_time: 1622s
+[9/10]	[600/1583]	 Loss_D: 0.6624	 Loss_G: 5.3241	 D(x): 0.9378	 D(G(z)): 0.3751 / 0.0081 take_time: 1634s
+[9/10]	[700/1583]	 Loss_D: 0.2521	 Loss_G: 2.9127	 D(x): 0.8842	 D(G(z)): 0.1056 / 0.0723 take_time: 1645s
+[9/10]	[800/1583]	 Loss_D: 0.6008	 Loss_G: 5.1422	 D(x): 0.8935	 D(G(z)): 0.3314 / 0.0099 take_time: 1657s
+[9/10]	[900/1583]	 Loss_D: 0.4604	 Loss_G: 2.6670	 D(x): 0.6918	 D(G(z)): 0.0324 / 0.1134 take_time: 1669s
+[9/10]	[1000/1583]	 Loss_D: 0.4045	 Loss_G: 3.1194	 D(x): 0.8653	 D(G(z)): 0.2006 / 0.0661 take_time: 1680s
+[9/10]	[1100/1583]	 Loss_D: 0.3456	 Loss_G: 3.7364	 D(x): 0.9227	 D(G(z)): 0.2152 / 0.0318 take_time: 1692s
+[9/10]	[1200/1583]	 Loss_D: 0.3154	 Loss_G: 3.0106	 D(x): 0.8523	 D(G(z)): 0.1218 / 0.0766 take_time: 1704s
+[9/10]	[1300/1583]	 Loss_D: 0.3397	 Loss_G: 3.5451	 D(x): 0.8719	 D(G(z)): 0.1638 / 0.0439 take_time: 1715s
+[9/10]	[1400/1583]	 Loss_D: 0.2653	 Loss_G: 3.3949	 D(x): 0.8735	 D(G(z)): 0.1074 / 0.0561 take_time: 1727s
+[9/10]	[1500/1583]	 Loss_D: 0.2567	 Loss_G: 3.5585	 D(x): 0.9047	 D(G(z)): 0.1242 / 0.0450 take_time: 1738s
+Generator(
+  (main): Sequential(
+    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace)
+    (6): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace)
+    (9): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace)
+    (12): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (13): Tanh()
+  )
+)
+Discriminator(
+  (main): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): LeakyReLU(negative_slope=0.2, inplace)
+    (2): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (4): LeakyReLU(negative_slope=0.2, inplace)
+    (5): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): LeakyReLU(negative_slope=0.2, inplace)
+    (8): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (9): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.2, inplace)
+    (11): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (12): Sigmoid()
+  )
+)
+config:
+image_size : 64
+number_of_discriminator_feature : 64
+save_every : 500
+data_path : data/celeba
+fake_label : 0
+train_load_check_point_file : False
+learn_rate : 0.0002
+batch_size : 128
+workers : 2
+number_gpus : 1
+beta1 : 0.5
+dataset : celeba
+print_every : 100
+number_of_generator_feature : 64
+manual_seed : 999
+real_label : 1
+device : cuda:0
+num_epochs : 10
+size_of_z_latent : 100
+number_channels : 3
+[9/10]	[0/1583]	 Loss_D: 1.7447	 Loss_G: 6.4315	 D(x): 0.9944	 D(G(z)): 0.7420 / 0.0033 take_time: 1748s
+[9/10]	[100/1583]	 Loss_D: 0.2602	 Loss_G: 3.0126	 D(x): 0.8438	 D(G(z)): 0.0683 / 0.0749 take_time: 1759s
+[9/10]	[200/1583]	 Loss_D: 0.2353	 Loss_G: 3.9844	 D(x): 0.9410	 D(G(z)): 0.1454 / 0.0275 take_time: 1770s
+[9/10]	[300/1583]	 Loss_D: 0.3831	 Loss_G: 4.7622	 D(x): 0.9672	 D(G(z)): 0.2669 / 0.0127 take_time: 1782s
+[9/10]	[400/1583]	 Loss_D: 0.2024	 Loss_G: 3.7362	 D(x): 0.9100	 D(G(z)): 0.0926 / 0.0354 take_time: 1793s
+[9/10]	[500/1583]	 Loss_D: 0.2707	 Loss_G: 3.0422	 D(x): 0.8237	 D(G(z)): 0.0538 / 0.0771 take_time: 1805s
+[9/10]	[600/1583]	 Loss_D: 0.2603	 Loss_G: 2.9252	 D(x): 0.8297	 D(G(z)): 0.0504 / 0.0873 take_time: 1816s
+[9/10]	[700/1583]	 Loss_D: 0.3151	 Loss_G: 3.5931	 D(x): 0.8610	 D(G(z)): 0.1304 / 0.0428 take_time: 1827s
+[9/10]	[800/1583]	 Loss_D: 0.4026	 Loss_G: 5.4065	 D(x): 0.9608	 D(G(z)): 0.2726 / 0.0070 take_time: 1839s
+[9/10]	[900/1583]	 Loss_D: 0.4723	 Loss_G: 1.9305	 D(x): 0.7119	 D(G(z)): 0.0565 / 0.2097 take_time: 1850s
+[9/10]	[1000/1583]	 Loss_D: 0.2927	 Loss_G: 3.5070	 D(x): 0.8015	 D(G(z)): 0.0408 / 0.0547 take_time: 1862s
+[9/10]	[1100/1583]	 Loss_D: 0.1785	 Loss_G: 3.8318	 D(x): 0.9004	 D(G(z)): 0.0574 / 0.0348 take_time: 1873s
+[9/10]	[1200/1583]	 Loss_D: 1.9684	 Loss_G: 0.3389	 D(x): 0.2055	 D(G(z)): 0.0045 / 0.7448 take_time: 1884s
+[9/10]	[1300/1583]	 Loss_D: 0.3046	 Loss_G: 2.7958	 D(x): 0.8045	 D(G(z)): 0.0525 / 0.0922 take_time: 1896s
+[9/10]	[1400/1583]	 Loss_D: 0.5203	 Loss_G: 4.1442	 D(x): 0.8833	 D(G(z)): 0.2682 / 0.0253 take_time: 1907s
+[9/10]	[1500/1583]	 Loss_D: 0.5226	 Loss_G: 6.1245	 D(x): 0.9664	 D(G(z)): 0.3475 / 0.0035 take_time: 1919s
+Generator(
+  (main): Sequential(
+    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace)
+    (6): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace)
+    (9): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace)
+    (12): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (13): Tanh()
+  )
+)
+Discriminator(
+  (main): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): LeakyReLU(negative_slope=0.2, inplace)
+    (2): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (4): LeakyReLU(negative_slope=0.2, inplace)
+    (5): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): LeakyReLU(negative_slope=0.2, inplace)
+    (8): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (9): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.2, inplace)
+    (11): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (12): Sigmoid()
+  )
+)
+config:
+device : cuda:0
+save_every : 500
+number_channels : 3
+manual_seed : 999
+num_epochs : 20
+learn_rate : 0.0002
+train_load_check_point_file : False
+dataset : celeba
+batch_size : 128
+number_of_generator_feature : 64
+real_label : 1
+beta1 : 0.5
+size_of_z_latent : 100
+image_size : 64
+workers : 2
+data_path : data/celeba
+print_every : 100
+fake_label : 0
+number_gpus : 1
+number_of_discriminator_feature : 64
+[0/20]	[0/1583]	 Loss_D: 1.7768	 Loss_G: 4.8827	 D(x): 0.5369	 D(G(z)): 0.5771 / 0.0122 take_time: 0s
+[0/20]	[100/1583]	 Loss_D: 0.7867	 Loss_G: 9.7450	 D(x): 0.9526	 D(G(z)): 0.3815 / 0.0002 take_time: 11s
+[0/20]	[200/1583]	 Loss_D: 0.3212	 Loss_G: 5.6102	 D(x): 0.7864	 D(G(z)): 0.0294 / 0.0071 take_time: 22s
+[0/20]	[300/1583]	 Loss_D: 0.5044	 Loss_G: 3.1912	 D(x): 0.7283	 D(G(z)): 0.0780 / 0.0655 take_time: 33s
+[0/20]	[400/1583]	 Loss_D: 0.7512	 Loss_G: 6.4140	 D(x): 0.8656	 D(G(z)): 0.3747 / 0.0036 take_time: 44s
+[0/20]	[500/1583]	 Loss_D: 0.3682	 Loss_G: 4.3679	 D(x): 0.8167	 D(G(z)): 0.0918 / 0.0260 take_time: 54s
+[0/20]	[600/1583]	 Loss_D: 0.4588	 Loss_G: 4.5281	 D(x): 0.8485	 D(G(z)): 0.2022 / 0.0200 take_time: 65s
+[0/20]	[700/1583]	 Loss_D: 0.4978	 Loss_G: 4.9161	 D(x): 0.8123	 D(G(z)): 0.1510 / 0.0174 take_time: 76s
+[0/20]	[800/1583]	 Loss_D: 0.9101	 Loss_G: 1.9875	 D(x): 0.5317	 D(G(z)): 0.0524 / 0.2278 take_time: 87s
+[0/20]	[900/1583]	 Loss_D: 0.3230	 Loss_G: 2.8712	 D(x): 0.8730	 D(G(z)): 0.1227 / 0.0924 take_time: 98s
+[0/20]	[1000/1583]	 Loss_D: 0.3180	 Loss_G: 4.2841	 D(x): 0.8604	 D(G(z)): 0.1016 / 0.0238 take_time: 109s
+[0/20]	[1100/1583]	 Loss_D: 0.6124	 Loss_G: 5.9625	 D(x): 0.9541	 D(G(z)): 0.3604 / 0.0062 take_time: 120s
+[0/20]	[1200/1583]	 Loss_D: 0.5161	 Loss_G: 4.8953	 D(x): 0.8522	 D(G(z)): 0.2360 / 0.0126 take_time: 131s
+[0/20]	[1300/1583]	 Loss_D: 0.3614	 Loss_G: 3.4495	 D(x): 0.8003	 D(G(z)): 0.0606 / 0.0526 take_time: 142s
+[0/20]	[1400/1583]	 Loss_D: 0.8381	 Loss_G: 5.7345	 D(x): 0.9292	 D(G(z)): 0.4751 / 0.0063 take_time: 153s
+[0/20]	[1500/1583]	 Loss_D: 0.7611	 Loss_G: 1.4015	 D(x): 0.5717	 D(G(z)): 0.0392 / 0.3238 take_time: 164s
+[1/20]	[0/1583]	 Loss_D: 0.6318	 Loss_G: 5.1533	 D(x): 0.8670	 D(G(z)): 0.3367 / 0.0091 take_time: 173s
+[1/20]	[100/1583]	 Loss_D: 0.3505	 Loss_G: 4.8273	 D(x): 0.8424	 D(G(z)): 0.1231 / 0.0157 take_time: 184s
+[1/20]	[200/1583]	 Loss_D: 0.3997	 Loss_G: 3.2627	 D(x): 0.8095	 D(G(z)): 0.1295 / 0.0607 take_time: 195s
+[1/20]	[300/1583]	 Loss_D: 0.5686	 Loss_G: 5.2007	 D(x): 0.8474	 D(G(z)): 0.2541 / 0.0111 take_time: 206s
+[1/20]	[400/1583]	 Loss_D: 0.5387	 Loss_G: 2.9548	 D(x): 0.7256	 D(G(z)): 0.1226 / 0.0820 take_time: 217s
+[1/20]	[500/1583]	 Loss_D: 0.9487	 Loss_G: 0.6566	 D(x): 0.5111	 D(G(z)): 0.0182 / 0.5785 take_time: 227s
+[1/20]	[600/1583]	 Loss_D: 0.6013	 Loss_G: 5.3916	 D(x): 0.8071	 D(G(z)): 0.2144 / 0.0133 take_time: 238s
+[1/20]	[700/1583]	 Loss_D: 0.2901	 Loss_G: 3.1475	 D(x): 0.8750	 D(G(z)): 0.1233 / 0.0606 take_time: 249s
+[1/20]	[800/1583]	 Loss_D: 0.5038	 Loss_G: 2.5029	 D(x): 0.7564	 D(G(z)): 0.1483 / 0.1150 take_time: 260s
+[1/20]	[900/1583]	 Loss_D: 0.5005	 Loss_G: 2.5539	 D(x): 0.7653	 D(G(z)): 0.1515 / 0.1070 take_time: 271s
+[1/20]	[1000/1583]	 Loss_D: 0.4907	 Loss_G: 2.5673	 D(x): 0.7125	 D(G(z)): 0.0957 / 0.1026 take_time: 282s
+[1/20]	[1100/1583]	 Loss_D: 0.5553	 Loss_G: 4.3249	 D(x): 0.8893	 D(G(z)): 0.3074 / 0.0210 take_time: 293s
+[1/20]	[1200/1583]	 Loss_D: 1.1240	 Loss_G: 5.8896	 D(x): 0.9234	 D(G(z)): 0.5789 / 0.0055 take_time: 304s
+[1/20]	[1300/1583]	 Loss_D: 0.5949	 Loss_G: 3.9738	 D(x): 0.8685	 D(G(z)): 0.3190 / 0.0288 take_time: 315s
+[1/20]	[1400/1583]	 Loss_D: 0.5774	 Loss_G: 4.1239	 D(x): 0.9124	 D(G(z)): 0.3494 / 0.0226 take_time: 326s
+[1/20]	[1500/1583]	 Loss_D: 0.9575	 Loss_G: 1.6298	 D(x): 0.4653	 D(G(z)): 0.0387 / 0.2732 take_time: 337s
+[2/20]	[0/1583]	 Loss_D: 0.5282	 Loss_G: 4.3497	 D(x): 0.9377	 D(G(z)): 0.3386 / 0.0202 take_time: 347s
+[2/20]	[100/1583]	 Loss_D: 0.6203	 Loss_G: 2.9878	 D(x): 0.8292	 D(G(z)): 0.3127 / 0.0668 take_time: 358s
+[2/20]	[200/1583]	 Loss_D: 0.7165	 Loss_G: 1.5866	 D(x): 0.6091	 D(G(z)): 0.1067 / 0.2559 take_time: 369s
+[2/20]	[300/1583]	 Loss_D: 0.5321	 Loss_G: 2.5613	 D(x): 0.7548	 D(G(z)): 0.1742 / 0.1031 take_time: 380s
+[2/20]	[400/1583]	 Loss_D: 0.8046	 Loss_G: 3.2379	 D(x): 0.8001	 D(G(z)): 0.3893 / 0.0575 take_time: 391s
+[2/20]	[500/1583]	 Loss_D: 0.8904	 Loss_G: 1.1638	 D(x): 0.5107	 D(G(z)): 0.0730 / 0.3763 take_time: 402s
+[2/20]	[600/1583]	 Loss_D: 0.5066	 Loss_G: 2.5454	 D(x): 0.6863	 D(G(z)): 0.0705 / 0.1026 take_time: 413s
+[2/20]	[700/1583]	 Loss_D: 0.5073	 Loss_G: 2.3599	 D(x): 0.7937	 D(G(z)): 0.2073 / 0.1233 take_time: 424s
+[2/20]	[800/1583]	 Loss_D: 0.6389	 Loss_G: 3.2872	 D(x): 0.8844	 D(G(z)): 0.3640 / 0.0490 take_time: 435s
+[2/20]	[900/1583]	 Loss_D: 0.4990	 Loss_G: 2.7582	 D(x): 0.8040	 D(G(z)): 0.2149 / 0.0800 take_time: 446s
+[2/20]	[1000/1583]	 Loss_D: 1.0894	 Loss_G: 1.5301	 D(x): 0.5076	 D(G(z)): 0.1892 / 0.2817 take_time: 457s
+[2/20]	[1100/1583]	 Loss_D: 0.5914	 Loss_G: 4.0618	 D(x): 0.9067	 D(G(z)): 0.3447 / 0.0266 take_time: 468s
+[2/20]	[1200/1583]	 Loss_D: 1.3178	 Loss_G: 0.8998	 D(x): 0.3341	 D(G(z)): 0.0271 / 0.4787 take_time: 479s
+[2/20]	[1300/1583]	 Loss_D: 0.7332	 Loss_G: 1.5618	 D(x): 0.5706	 D(G(z)): 0.0987 / 0.2538 take_time: 490s
+[2/20]	[1400/1583]	 Loss_D: 0.7150	 Loss_G: 1.8207	 D(x): 0.6046	 D(G(z)): 0.1124 / 0.2085 take_time: 501s
+[2/20]	[1500/1583]	 Loss_D: 0.9793	 Loss_G: 4.1571	 D(x): 0.9723	 D(G(z)): 0.5528 / 0.0261 take_time: 512s
+[3/20]	[0/1583]	 Loss_D: 0.7094	 Loss_G: 1.1868	 D(x): 0.5567	 D(G(z)): 0.0467 / 0.3589 take_time: 521s
+[3/20]	[100/1583]	 Loss_D: 0.5001	 Loss_G: 3.0604	 D(x): 0.8761	 D(G(z)): 0.2807 / 0.0639 take_time: 532s
+[3/20]	[200/1583]	 Loss_D: 0.6387	 Loss_G: 1.4501	 D(x): 0.6466	 D(G(z)): 0.1306 / 0.2736 take_time: 543s
+[3/20]	[300/1583]	 Loss_D: 1.6036	 Loss_G: 0.4629	 D(x): 0.2882	 D(G(z)): 0.0341 / 0.6701 take_time: 554s
+[3/20]	[400/1583]	 Loss_D: 0.6543	 Loss_G: 1.9860	 D(x): 0.5954	 D(G(z)): 0.0682 / 0.1800 take_time: 565s
+[3/20]	[500/1583]	 Loss_D: 0.5892	 Loss_G: 2.8533	 D(x): 0.8985	 D(G(z)): 0.3515 / 0.0738 take_time: 576s
+[3/20]	[600/1583]	 Loss_D: 0.4341	 Loss_G: 3.1605	 D(x): 0.8874	 D(G(z)): 0.2515 / 0.0546 take_time: 587s
+[3/20]	[700/1583]	 Loss_D: 0.5312	 Loss_G: 3.1900	 D(x): 0.8905	 D(G(z)): 0.3060 / 0.0544 take_time: 598s
+[3/20]	[800/1583]	 Loss_D: 0.7768	 Loss_G: 1.1695	 D(x): 0.6033	 D(G(z)): 0.1675 / 0.3624 take_time: 609s
+[3/20]	[900/1583]	 Loss_D: 1.1207	 Loss_G: 1.4150	 D(x): 0.4149	 D(G(z)): 0.0567 / 0.3004 take_time: 620s
+[3/20]	[1000/1583]	 Loss_D: 0.8854	 Loss_G: 1.7017	 D(x): 0.5174	 D(G(z)): 0.0910 / 0.2391 take_time: 631s
+[3/20]	[1100/1583]	 Loss_D: 0.5307	 Loss_G: 2.3096	 D(x): 0.6684	 D(G(z)): 0.0759 / 0.1373 take_time: 642s
+[3/20]	[1200/1583]	 Loss_D: 0.9845	 Loss_G: 0.9917	 D(x): 0.4381	 D(G(z)): 0.0472 / 0.4121 take_time: 653s
+[3/20]	[1300/1583]	 Loss_D: 0.4710	 Loss_G: 2.7036	 D(x): 0.8041	 D(G(z)): 0.1931 / 0.0826 take_time: 664s
+[3/20]	[1400/1583]	 Loss_D: 0.5199	 Loss_G: 3.3533	 D(x): 0.9011	 D(G(z)): 0.3097 / 0.0454 take_time: 675s
+[3/20]	[1500/1583]	 Loss_D: 1.4277	 Loss_G: 4.8341	 D(x): 0.9642	 D(G(z)): 0.7145 / 0.0119 take_time: 686s
+[4/20]	[0/1583]	 Loss_D: 1.0122	 Loss_G: 2.1548	 D(x): 0.5301	 D(G(z)): 0.1766 / 0.1946 take_time: 696s
+[4/20]	[100/1583]	 Loss_D: 0.7296	 Loss_G: 0.9173	 D(x): 0.5972	 D(G(z)): 0.1234 / 0.4447 take_time: 707s
+[4/20]	[200/1583]	 Loss_D: 0.6295	 Loss_G: 3.5587	 D(x): 0.9072	 D(G(z)): 0.3701 / 0.0421 take_time: 718s
+[4/20]	[300/1583]	 Loss_D: 2.0059	 Loss_G: 0.6932	 D(x): 0.2101	 D(G(z)): 0.0236 / 0.5743 take_time: 729s
+[4/20]	[400/1583]	 Loss_D: 0.6135	 Loss_G: 3.5214	 D(x): 0.9225	 D(G(z)): 0.3701 / 0.0406 take_time: 740s
+[4/20]	[500/1583]	 Loss_D: 0.5766	 Loss_G: 2.2636	 D(x): 0.7770	 D(G(z)): 0.2346 / 0.1290 take_time: 751s
+[4/20]	[600/1583]	 Loss_D: 0.4345	 Loss_G: 2.8282	 D(x): 0.7985	 D(G(z)): 0.1661 / 0.0781 take_time: 762s
+[4/20]	[700/1583]	 Loss_D: 1.2974	 Loss_G: 4.6340	 D(x): 0.9578	 D(G(z)): 0.6389 / 0.0213 take_time: 773s
+[4/20]	[800/1583]	 Loss_D: 0.4930	 Loss_G: 2.2952	 D(x): 0.8286	 D(G(z)): 0.2364 / 0.1263 take_time: 784s
+[4/20]	[900/1583]	 Loss_D: 0.7016	 Loss_G: 2.9427	 D(x): 0.8143	 D(G(z)): 0.3397 / 0.0726 take_time: 795s
+[4/20]	[1000/1583]	 Loss_D: 0.7854	 Loss_G: 3.8921	 D(x): 0.8380	 D(G(z)): 0.4074 / 0.0281 take_time: 806s
+[4/20]	[1100/1583]	 Loss_D: 0.5544	 Loss_G: 2.3495	 D(x): 0.6902	 D(G(z)): 0.1213 / 0.1372 take_time: 817s
+[4/20]	[1200/1583]	 Loss_D: 1.0017	 Loss_G: 0.6429	 D(x): 0.4466	 D(G(z)): 0.0917 / 0.5630 take_time: 828s
+[4/20]	[1300/1583]	 Loss_D: 0.4397	 Loss_G: 2.9991	 D(x): 0.7648	 D(G(z)): 0.1201 / 0.0749 take_time: 839s
+[4/20]	[1400/1583]	 Loss_D: 0.7460	 Loss_G: 3.9033	 D(x): 0.8935	 D(G(z)): 0.4138 / 0.0277 take_time: 850s
+[4/20]	[1500/1583]	 Loss_D: 0.4647	 Loss_G: 2.4011	 D(x): 0.8545	 D(G(z)): 0.2367 / 0.1209 take_time: 861s
+[5/20]	[0/1583]	 Loss_D: 0.5530	 Loss_G: 2.8338	 D(x): 0.7821	 D(G(z)): 0.2287 / 0.0793 take_time: 870s
+[5/20]	[100/1583]	 Loss_D: 0.6486	 Loss_G: 1.3100	 D(x): 0.6277	 D(G(z)): 0.0887 / 0.3114 take_time: 881s
+[5/20]	[200/1583]	 Loss_D: 0.4388	 Loss_G: 2.0213	 D(x): 0.7291	 D(G(z)): 0.0772 / 0.1698 take_time: 892s
+[5/20]	[300/1583]	 Loss_D: 1.3612	 Loss_G: 1.1513	 D(x): 0.3471	 D(G(z)): 0.0888 / 0.4006 take_time: 903s
+[5/20]	[400/1583]	 Loss_D: 0.6255	 Loss_G: 1.8424	 D(x): 0.6194	 D(G(z)): 0.0814 / 0.2062 take_time: 914s
+[5/20]	[500/1583]	 Loss_D: 0.5934	 Loss_G: 2.2162	 D(x): 0.7629	 D(G(z)): 0.2398 / 0.1405 take_time: 925s
+[5/20]	[600/1583]	 Loss_D: 0.6329	 Loss_G: 1.6794	 D(x): 0.6973	 D(G(z)): 0.1919 / 0.2224 take_time: 936s
+[5/20]	[700/1583]	 Loss_D: 1.7527	 Loss_G: 0.1929	 D(x): 0.2510	 D(G(z)): 0.0504 / 0.8322 take_time: 947s
+[5/20]	[800/1583]	 Loss_D: 0.6100	 Loss_G: 3.0793	 D(x): 0.8444	 D(G(z)): 0.3250 / 0.0590 take_time: 958s
+[5/20]	[900/1583]	 Loss_D: 0.6273	 Loss_G: 1.4925	 D(x): 0.6282	 D(G(z)): 0.0853 / 0.2747 take_time: 969s
+[5/20]	[1000/1583]	 Loss_D: 0.5253	 Loss_G: 2.9068	 D(x): 0.7988	 D(G(z)): 0.2253 / 0.0727 take_time: 980s
+[5/20]	[1100/1583]	 Loss_D: 0.6730	 Loss_G: 3.5042	 D(x): 0.8691	 D(G(z)): 0.3685 / 0.0412 take_time: 991s
+[5/20]	[1200/1583]	 Loss_D: 0.3992	 Loss_G: 2.7125	 D(x): 0.8660	 D(G(z)): 0.2046 / 0.0874 take_time: 1002s
+[5/20]	[1300/1583]	 Loss_D: 2.0931	 Loss_G: 5.5724	 D(x): 0.9410	 D(G(z)): 0.7997 / 0.0076 take_time: 1013s
+[5/20]	[1400/1583]	 Loss_D: 0.5420	 Loss_G: 2.1745	 D(x): 0.7348	 D(G(z)): 0.1709 / 0.1490 take_time: 1024s
+[5/20]	[1500/1583]	 Loss_D: 0.5811	 Loss_G: 1.2307	 D(x): 0.6614	 D(G(z)): 0.0945 / 0.3287 take_time: 1035s
+[6/20]	[0/1583]	 Loss_D: 0.5813	 Loss_G: 2.0624	 D(x): 0.7297	 D(G(z)): 0.1898 / 0.1666 take_time: 1044s
+[6/20]	[100/1583]	 Loss_D: 0.9273	 Loss_G: 1.4584	 D(x): 0.4738	 D(G(z)): 0.0315 / 0.2891 take_time: 1055s
+[6/20]	[200/1583]	 Loss_D: 0.4044	 Loss_G: 3.2825	 D(x): 0.8163	 D(G(z)): 0.1540 / 0.0566 take_time: 1066s
+[6/20]	[300/1583]	 Loss_D: 0.7538	 Loss_G: 1.6057	 D(x): 0.5687	 D(G(z)): 0.0914 / 0.2526 take_time: 1077s
+[6/20]	[400/1583]	 Loss_D: 0.5198	 Loss_G: 3.6252	 D(x): 0.9739	 D(G(z)): 0.3541 / 0.0362 take_time: 1088s
+[6/20]	[500/1583]	 Loss_D: 0.5992	 Loss_G: 2.7415	 D(x): 0.7970	 D(G(z)): 0.2684 / 0.0877 take_time: 1099s
+[6/20]	[600/1583]	 Loss_D: 0.4738	 Loss_G: 2.5189	 D(x): 0.7002	 D(G(z)): 0.0540 / 0.1093 take_time: 1110s
+[6/20]	[700/1583]	 Loss_D: 0.9941	 Loss_G: 4.4089	 D(x): 0.9061	 D(G(z)): 0.5183 / 0.0197 take_time: 1121s
+[6/20]	[800/1583]	 Loss_D: 0.4224	 Loss_G: 4.1101	 D(x): 0.9385	 D(G(z)): 0.2805 / 0.0215 take_time: 1132s
+[6/20]	[900/1583]	 Loss_D: 0.4283	 Loss_G: 3.1860	 D(x): 0.8521	 D(G(z)): 0.2068 / 0.0535 take_time: 1143s
+[6/20]	[1000/1583]	 Loss_D: 0.6919	 Loss_G: 3.7693	 D(x): 0.9003	 D(G(z)): 0.3966 / 0.0347 take_time: 1154s
+[6/20]	[1100/1583]	 Loss_D: 0.6727	 Loss_G: 3.4351	 D(x): 0.9247	 D(G(z)): 0.3969 / 0.0482 take_time: 1165s
+[6/20]	[1200/1583]	 Loss_D: 0.7258	 Loss_G: 2.8434	 D(x): 0.8641	 D(G(z)): 0.3769 / 0.0827 take_time: 1176s
+[6/20]	[1300/1583]	 Loss_D: 0.3908	 Loss_G: 2.7512	 D(x): 0.8724	 D(G(z)): 0.2038 / 0.0785 take_time: 1187s
+[6/20]	[1400/1583]	 Loss_D: 0.5116	 Loss_G: 3.2522	 D(x): 0.9158	 D(G(z)): 0.3091 / 0.0546 take_time: 1198s
+[6/20]	[1500/1583]	 Loss_D: 0.9977	 Loss_G: 5.8693	 D(x): 0.9154	 D(G(z)): 0.5321 / 0.0047 take_time: 1209s
+[7/20]	[0/1583]	 Loss_D: 0.6628	 Loss_G: 4.5133	 D(x): 0.9403	 D(G(z)): 0.4114 / 0.0161 take_time: 1218s
+[7/20]	[100/1583]	 Loss_D: 0.7625	 Loss_G: 0.6745	 D(x): 0.5630	 D(G(z)): 0.0750 / 0.5761 take_time: 1229s
+[7/20]	[200/1583]	 Loss_D: 0.4469	 Loss_G: 2.5823	 D(x): 0.8488	 D(G(z)): 0.2151 / 0.0966 take_time: 1240s
+[7/20]	[300/1583]	 Loss_D: 0.5934	 Loss_G: 1.9768	 D(x): 0.6521	 D(G(z)): 0.0768 / 0.1779 take_time: 1251s
+[7/20]	[400/1583]	 Loss_D: 0.4414	 Loss_G: 3.9511	 D(x): 0.9373	 D(G(z)): 0.2767 / 0.0270 take_time: 1262s
+[7/20]	[500/1583]	 Loss_D: 0.6132	 Loss_G: 1.6456	 D(x): 0.6036	 D(G(z)): 0.0359 / 0.2530 take_time: 1273s
+[7/20]	[600/1583]	 Loss_D: 0.7068	 Loss_G: 4.5384	 D(x): 0.9293	 D(G(z)): 0.4130 / 0.0155 take_time: 1284s
+[7/20]	[700/1583]	 Loss_D: 0.4779	 Loss_G: 3.1759	 D(x): 0.9126	 D(G(z)): 0.2835 / 0.0579 take_time: 1295s
+[7/20]	[800/1583]	 Loss_D: 1.3928	 Loss_G: 4.0717	 D(x): 0.9329	 D(G(z)): 0.6534 / 0.0257 take_time: 1306s
+[7/20]	[900/1583]	 Loss_D: 0.5804	 Loss_G: 2.1786	 D(x): 0.6475	 D(G(z)): 0.0705 / 0.1560 take_time: 1317s
+[7/20]	[1000/1583]	 Loss_D: 0.3675	 Loss_G: 2.9372	 D(x): 0.8359	 D(G(z)): 0.1434 / 0.0774 take_time: 1328s
+[7/20]	[1100/1583]	 Loss_D: 0.5128	 Loss_G: 3.3557	 D(x): 0.8997	 D(G(z)): 0.3049 / 0.0461 take_time: 1339s
+[7/20]	[1200/1583]	 Loss_D: 0.6142	 Loss_G: 0.8109	 D(x): 0.6147	 D(G(z)): 0.0448 / 0.5088 take_time: 1350s
+[7/20]	[1300/1583]	 Loss_D: 0.4915	 Loss_G: 1.4886	 D(x): 0.7402	 D(G(z)): 0.1230 / 0.2740 take_time: 1361s
+[7/20]	[1400/1583]	 Loss_D: 0.4030	 Loss_G: 2.8109	 D(x): 0.8908	 D(G(z)): 0.2261 / 0.0792 take_time: 1372s
+[7/20]	[1500/1583]	 Loss_D: 2.8283	 Loss_G: 5.6994	 D(x): 0.9832	 D(G(z)): 0.8958 / 0.0059 take_time: 1383s
+[8/20]	[0/1583]	 Loss_D: 0.5935	 Loss_G: 3.6990	 D(x): 0.9093	 D(G(z)): 0.3531 / 0.0344 take_time: 1392s
+[8/20]	[100/1583]	 Loss_D: 3.9636	 Loss_G: 5.9484	 D(x): 0.9937	 D(G(z)): 0.9579 / 0.0058 take_time: 1403s
+[8/20]	[200/1583]	 Loss_D: 0.3245	 Loss_G: 3.6843	 D(x): 0.9205	 D(G(z)): 0.1949 / 0.0364 take_time: 1414s
+[8/20]	[300/1583]	 Loss_D: 0.5662	 Loss_G: 2.5614	 D(x): 0.7673	 D(G(z)): 0.2058 / 0.1010 take_time: 1425s
+[8/20]	[400/1583]	 Loss_D: 0.6927	 Loss_G: 1.2102	 D(x): 0.5849	 D(G(z)): 0.0758 / 0.3801 take_time: 1436s
+[8/20]	[500/1583]	 Loss_D: 0.5719	 Loss_G: 2.3013	 D(x): 0.6621	 D(G(z)): 0.0636 / 0.1446 take_time: 1447s
+[8/20]	[600/1583]	 Loss_D: 0.2842	 Loss_G: 3.1108	 D(x): 0.8624	 D(G(z)): 0.1108 / 0.0648 take_time: 1458s
+[8/20]	[700/1583]	 Loss_D: 0.5428	 Loss_G: 1.7850	 D(x): 0.7213	 D(G(z)): 0.1498 / 0.2168 take_time: 1469s
+[8/20]	[800/1583]	 Loss_D: 0.3985	 Loss_G: 2.5457	 D(x): 0.8359	 D(G(z)): 0.1675 / 0.1080 take_time: 1480s
+[8/20]	[900/1583]	 Loss_D: 0.3902	 Loss_G: 2.3930	 D(x): 0.8076	 D(G(z)): 0.1261 / 0.1246 take_time: 1491s
+[8/20]	[1000/1583]	 Loss_D: 0.6739	 Loss_G: 1.8109	 D(x): 0.6194	 D(G(z)): 0.0883 / 0.2236 take_time: 1502s
+[8/20]	[1100/1583]	 Loss_D: 0.4937	 Loss_G: 1.9627	 D(x): 0.6994	 D(G(z)): 0.0678 / 0.1830 take_time: 1514s
+[8/20]	[1200/1583]	 Loss_D: 0.5897	 Loss_G: 1.7460	 D(x): 0.6300	 D(G(z)): 0.0522 / 0.2296 take_time: 1525s
+[8/20]	[1300/1583]	 Loss_D: 0.8261	 Loss_G: 5.1001	 D(x): 0.9728	 D(G(z)): 0.4942 / 0.0090 take_time: 1536s
+[8/20]	[1400/1583]	 Loss_D: 0.3586	 Loss_G: 2.4274	 D(x): 0.8713	 D(G(z)): 0.1761 / 0.1181 take_time: 1547s
+[8/20]	[1500/1583]	 Loss_D: 0.7617	 Loss_G: 1.1556	 D(x): 0.5489	 D(G(z)): 0.0332 / 0.3871 take_time: 1557s
+[9/20]	[0/1583]	 Loss_D: 0.4863	 Loss_G: 2.1082	 D(x): 0.6914	 D(G(z)): 0.0347 / 0.1671 take_time: 1567s
+[9/20]	[100/1583]	 Loss_D: 0.4411	 Loss_G: 4.2334	 D(x): 0.9385	 D(G(z)): 0.2885 / 0.0211 take_time: 1578s
+[9/20]	[200/1583]	 Loss_D: 0.2633	 Loss_G: 3.5051	 D(x): 0.9145	 D(G(z)): 0.1438 / 0.0481 take_time: 1589s
+[9/20]	[300/1583]	 Loss_D: 0.4183	 Loss_G: 4.0582	 D(x): 0.9417	 D(G(z)): 0.2779 / 0.0260 take_time: 1600s
+[9/20]	[400/1583]	 Loss_D: 0.4491	 Loss_G: 1.4839	 D(x): 0.6963	 D(G(z)): 0.0341 / 0.2773 take_time: 1611s
+[9/20]	[500/1583]	 Loss_D: 1.1043	 Loss_G: 5.0606	 D(x): 0.9650	 D(G(z)): 0.5889 / 0.0104 take_time: 1622s
+[9/20]	[600/1583]	 Loss_D: 0.3079	 Loss_G: 3.0092	 D(x): 0.8936	 D(G(z)): 0.1597 / 0.0689 take_time: 1633s
+[9/20]	[700/1583]	 Loss_D: 0.5057	 Loss_G: 4.8429	 D(x): 0.9380	 D(G(z)): 0.3205 / 0.0121 take_time: 1644s
+[9/20]	[800/1583]	 Loss_D: 0.3980	 Loss_G: 3.3178	 D(x): 0.9009	 D(G(z)): 0.2189 / 0.0537 take_time: 1655s
+[9/20]	[900/1583]	 Loss_D: 0.4723	 Loss_G: 2.2632	 D(x): 0.6895	 D(G(z)): 0.0354 / 0.1507 take_time: 1666s
+[9/20]	[1000/1583]	 Loss_D: 0.9773	 Loss_G: 1.2706	 D(x): 0.5406	 D(G(z)): 0.1647 / 0.3437 take_time: 1677s
+[9/20]	[1100/1583]	 Loss_D: 0.2856	 Loss_G: 2.5531	 D(x): 0.8382	 D(G(z)): 0.0790 / 0.1098 take_time: 1688s
+[9/20]	[1200/1583]	 Loss_D: 0.3158	 Loss_G: 2.9142	 D(x): 0.8363	 D(G(z)): 0.1054 / 0.0790 take_time: 1699s
+[9/20]	[1300/1583]	 Loss_D: 0.6861	 Loss_G: 5.0554	 D(x): 0.9473	 D(G(z)): 0.4015 / 0.0109 take_time: 1710s
+[9/20]	[1400/1583]	 Loss_D: 0.3416	 Loss_G: 2.2872	 D(x): 0.8115	 D(G(z)): 0.1045 / 0.1345 take_time: 1721s
+[9/20]	[1500/1583]	 Loss_D: 0.2871	 Loss_G: 3.7555	 D(x): 0.8598	 D(G(z)): 0.0995 / 0.0386 take_time: 1732s
+[10/20]	[0/1583]	 Loss_D: 0.2921	 Loss_G: 4.4308	 D(x): 0.9527	 D(G(z)): 0.1954 / 0.0169 take_time: 1741s
+[10/20]	[100/1583]	 Loss_D: 0.4889	 Loss_G: 3.4712	 D(x): 0.8262	 D(G(z)): 0.2135 / 0.0488 take_time: 1752s
+[10/20]	[200/1583]	 Loss_D: 1.9011	 Loss_G: 7.2861	 D(x): 0.9578	 D(G(z)): 0.7816 / 0.0013 take_time: 1763s
+[10/20]	[300/1583]	 Loss_D: 0.2750	 Loss_G: 3.1437	 D(x): 0.8304	 D(G(z)): 0.0686 / 0.0584 take_time: 1774s
+[10/20]	[400/1583]	 Loss_D: 0.2969	 Loss_G: 4.0756	 D(x): 0.9555	 D(G(z)): 0.2007 / 0.0259 take_time: 1785s
+[10/20]	[500/1583]	 Loss_D: 0.3483	 Loss_G: 2.2273	 D(x): 0.8003	 D(G(z)): 0.0682 / 0.1477 take_time: 1796s
+[10/20]	[600/1583]	 Loss_D: 0.6609	 Loss_G: 5.3378	 D(x): 0.9409	 D(G(z)): 0.4019 / 0.0081 take_time: 1807s
+[10/20]	[700/1583]	 Loss_D: 0.4059	 Loss_G: 2.3930	 D(x): 0.7898	 D(G(z)): 0.1188 / 0.1334 take_time: 1818s
+[10/20]	[800/1583]	 Loss_D: 0.8553	 Loss_G: 2.3024	 D(x): 0.4943	 D(G(z)): 0.0142 / 0.1526 take_time: 1829s
+[10/20]	[900/1583]	 Loss_D: 0.1954	 Loss_G: 3.0607	 D(x): 0.8740	 D(G(z)): 0.0494 / 0.0698 take_time: 1840s
+[10/20]	[1000/1583]	 Loss_D: 0.4521	 Loss_G: 5.5042	 D(x): 0.8816	 D(G(z)): 0.2426 / 0.0069 take_time: 1851s
+[10/20]	[1100/1583]	 Loss_D: 0.2319	 Loss_G: 4.5175	 D(x): 0.9630	 D(G(z)): 0.1591 / 0.0162 take_time: 1862s
+[10/20]	[1200/1583]	 Loss_D: 0.5493	 Loss_G: 1.8678	 D(x): 0.6906	 D(G(z)): 0.0943 / 0.2150 take_time: 1873s
+[10/20]	[1300/1583]	 Loss_D: 0.1753	 Loss_G: 3.5484	 D(x): 0.9338	 D(G(z)): 0.0912 / 0.0472 take_time: 1884s
+[10/20]	[1400/1583]	 Loss_D: 2.4466	 Loss_G: 6.2856	 D(x): 0.9483	 D(G(z)): 0.8349 / 0.0030 take_time: 1895s
+[10/20]	[1500/1583]	 Loss_D: 0.2718	 Loss_G: 3.5163	 D(x): 0.8727	 D(G(z)): 0.1060 / 0.0429 take_time: 1906s
+[11/20]	[0/1583]	 Loss_D: 0.2309	 Loss_G: 3.8960	 D(x): 0.9298	 D(G(z)): 0.1327 / 0.0284 take_time: 1915s
+[11/20]	[100/1583]	 Loss_D: 0.2531	 Loss_G: 3.2198	 D(x): 0.8408	 D(G(z)): 0.0534 / 0.0631 take_time: 1926s
+[11/20]	[200/1583]	 Loss_D: 0.2832	 Loss_G: 2.9195	 D(x): 0.8552	 D(G(z)): 0.1013 / 0.0836 take_time: 1937s
+[11/20]	[300/1583]	 Loss_D: 0.3232	 Loss_G: 2.1614	 D(x): 0.7877	 D(G(z)): 0.0525 / 0.1689 take_time: 1949s
+[11/20]	[400/1583]	 Loss_D: 0.6809	 Loss_G: 1.4371	 D(x): 0.5944	 D(G(z)): 0.0490 / 0.3109 take_time: 1960s
+[11/20]	[500/1583]	 Loss_D: 0.1903	 Loss_G: 3.5433	 D(x): 0.9146	 D(G(z)): 0.0853 / 0.0445 take_time: 1971s
+[11/20]	[600/1583]	 Loss_D: 0.3201	 Loss_G: 4.9773	 D(x): 0.9818	 D(G(z)): 0.2310 / 0.0102 take_time: 1981s
+[11/20]	[700/1583]	 Loss_D: 0.4772	 Loss_G: 1.6255	 D(x): 0.6839	 D(G(z)): 0.0415 / 0.2776 take_time: 1993s
+[11/20]	[800/1583]	 Loss_D: 0.2243	 Loss_G: 3.7102	 D(x): 0.9500	 D(G(z)): 0.1347 / 0.0339 take_time: 2004s
+[11/20]	[900/1583]	 Loss_D: 0.4959	 Loss_G: 2.6492	 D(x): 0.7216	 D(G(z)): 0.0878 / 0.1090 take_time: 2014s
+[11/20]	[1000/1583]	 Loss_D: 0.8507	 Loss_G: 4.6644	 D(x): 0.9126	 D(G(z)): 0.4631 / 0.0151 take_time: 2025s
+[11/20]	[1100/1583]	 Loss_D: 0.5876	 Loss_G: 5.8012	 D(x): 0.9691	 D(G(z)): 0.3652 / 0.0063 take_time: 2036s
+[11/20]	[1200/1583]	 Loss_D: 0.2180	 Loss_G: 3.3692	 D(x): 0.9092	 D(G(z)): 0.1035 / 0.0504 take_time: 2047s
+[11/20]	[1300/1583]	 Loss_D: 0.1941	 Loss_G: 3.0909	 D(x): 0.8786	 D(G(z)): 0.0494 / 0.0694 take_time: 2058s
+[11/20]	[1400/1583]	 Loss_D: 0.1871	 Loss_G: 3.8008	 D(x): 0.9258	 D(G(z)): 0.0929 / 0.0344 take_time: 2070s
+[11/20]	[1500/1583]	 Loss_D: 0.2952	 Loss_G: 4.4385	 D(x): 0.9526	 D(G(z)): 0.1942 / 0.0175 take_time: 2081s
+[12/20]	[0/1583]	 Loss_D: 0.2277	 Loss_G: 3.1665	 D(x): 0.9181	 D(G(z)): 0.1201 / 0.0588 take_time: 2090s
+[12/20]	[100/1583]	 Loss_D: 1.3573	 Loss_G: 5.0390	 D(x): 0.9847	 D(G(z)): 0.6605 / 0.0124 take_time: 2101s
+[12/20]	[200/1583]	 Loss_D: 0.1527	 Loss_G: 3.7473	 D(x): 0.9387	 D(G(z)): 0.0748 / 0.0327 take_time: 2112s
+[12/20]	[300/1583]	 Loss_D: 0.1724	 Loss_G: 3.2974	 D(x): 0.8761	 D(G(z)): 0.0272 / 0.0586 take_time: 2123s
+[12/20]	[400/1583]	 Loss_D: 0.1849	 Loss_G: 3.0482	 D(x): 0.9084	 D(G(z)): 0.0721 / 0.0703 take_time: 2134s
+[12/20]	[500/1583]	 Loss_D: 0.3579	 Loss_G: 3.5042	 D(x): 0.8319	 D(G(z)): 0.1191 / 0.0524 take_time: 2145s
+[12/20]	[600/1583]	 Loss_D: 0.6431	 Loss_G: 5.7373	 D(x): 0.9642	 D(G(z)): 0.3890 / 0.0058 take_time: 2156s
+[12/20]	[700/1583]	 Loss_D: 0.2664	 Loss_G: 2.9993	 D(x): 0.8304	 D(G(z)): 0.0588 / 0.0863 take_time: 2167s
+[12/20]	[800/1583]	 Loss_D: 0.1669	 Loss_G: 3.4532	 D(x): 0.9448	 D(G(z)): 0.0935 / 0.0474 take_time: 2178s
+[12/20]	[900/1583]	 Loss_D: 0.3847	 Loss_G: 4.7945	 D(x): 0.9107	 D(G(z)): 0.2176 / 0.0135 take_time: 2189s
+[12/20]	[1000/1583]	 Loss_D: 0.4076	 Loss_G: 5.6085	 D(x): 0.9656	 D(G(z)): 0.2774 / 0.0062 take_time: 2200s
+[12/20]	[1100/1583]	 Loss_D: 0.2514	 Loss_G: 3.4541	 D(x): 0.8451	 D(G(z)): 0.0575 / 0.0519 take_time: 2211s
+[12/20]	[1200/1583]	 Loss_D: 0.4639	 Loss_G: 3.4917	 D(x): 0.8308	 D(G(z)): 0.2016 / 0.0488 take_time: 2222s
+[12/20]	[1300/1583]	 Loss_D: 0.1763	 Loss_G: 4.2840	 D(x): 0.9478	 D(G(z)): 0.1015 / 0.0217 take_time: 2233s
+[12/20]	[1400/1583]	 Loss_D: 0.7457	 Loss_G: 1.3927	 D(x): 0.5389	 D(G(z)): 0.0109 / 0.3470 take_time: 2244s
+[12/20]	[1500/1583]	 Loss_D: 0.1657	 Loss_G: 3.7367	 D(x): 0.9203	 D(G(z)): 0.0707 / 0.0409 take_time: 2255s
+[13/20]	[0/1583]	 Loss_D: 0.2617	 Loss_G: 3.3607	 D(x): 0.8343	 D(G(z)): 0.0553 / 0.0592 take_time: 2264s
+[13/20]	[100/1583]	 Loss_D: 1.2625	 Loss_G: 4.9945	 D(x): 0.9768	 D(G(z)): 0.6220 / 0.0130 take_time: 2275s
+[13/20]	[200/1583]	 Loss_D: 0.3662	 Loss_G: 4.0368	 D(x): 0.8526	 D(G(z)): 0.1460 / 0.0349 take_time: 2286s
+[13/20]	[300/1583]	 Loss_D: 0.4255	 Loss_G: 1.4931	 D(x): 0.7210	 D(G(z)): 0.0252 / 0.2955 take_time: 2297s
+[13/20]	[400/1583]	 Loss_D: 0.2588	 Loss_G: 2.7136	 D(x): 0.8428	 D(G(z)): 0.0559 / 0.1136 take_time: 2308s
+[13/20]	[500/1583]	 Loss_D: 0.2554	 Loss_G: 4.9844	 D(x): 0.9896	 D(G(z)): 0.1944 / 0.0100 take_time: 2319s
+[13/20]	[600/1583]	 Loss_D: 0.8241	 Loss_G: 4.4373	 D(x): 0.9360	 D(G(z)): 0.4253 / 0.0342 take_time: 2330s
+[13/20]	[700/1583]	 Loss_D: 0.8378	 Loss_G: 2.2183	 D(x): 0.5217	 D(G(z)): 0.0127 / 0.1727 take_time: 2341s
+[13/20]	[800/1583]	 Loss_D: 0.1344	 Loss_G: 4.1408	 D(x): 0.9156	 D(G(z)): 0.0394 / 0.0286 take_time: 2352s
+[13/20]	[900/1583]	 Loss_D: 0.1231	 Loss_G: 4.2056	 D(x): 0.9670	 D(G(z)): 0.0807 / 0.0249 take_time: 2364s
+[13/20]	[1000/1583]	 Loss_D: 0.1348	 Loss_G: 4.0923	 D(x): 0.9464	 D(G(z)): 0.0705 / 0.0253 take_time: 2375s
+[13/20]	[1100/1583]	 Loss_D: 0.5781	 Loss_G: 2.9928	 D(x): 0.6667	 D(G(z)): 0.0625 / 0.0930 take_time: 2386s
+[13/20]	[1200/1583]	 Loss_D: 0.2052	 Loss_G: 4.1890	 D(x): 0.9519	 D(G(z)): 0.1320 / 0.0223 take_time: 2397s
+[13/20]	[1300/1583]	 Loss_D: 0.5810	 Loss_G: 5.7599	 D(x): 0.9902	 D(G(z)): 0.3464 / 0.0050 take_time: 2408s
+[13/20]	[1400/1583]	 Loss_D: 2.9311	 Loss_G: 0.5901	 D(x): 0.0858	 D(G(z)): 0.0019 / 0.6073 take_time: 2419s
+[13/20]	[1500/1583]	 Loss_D: 0.1749	 Loss_G: 3.9955	 D(x): 0.9401	 D(G(z)): 0.0897 / 0.0335 take_time: 2430s
+[14/20]	[0/1583]	 Loss_D: 0.1220	 Loss_G: 3.9252	 D(x): 0.9415	 D(G(z)): 0.0531 / 0.0340 take_time: 2439s
+[14/20]	[100/1583]	 Loss_D: 0.0973	 Loss_G: 4.3948	 D(x): 0.9717	 D(G(z)): 0.0632 / 0.0207 take_time: 2450s
+[14/20]	[200/1583]	 Loss_D: 0.1310	 Loss_G: 4.0664	 D(x): 0.9464	 D(G(z)): 0.0679 / 0.0282 take_time: 2461s
+[14/20]	[300/1583]	 Loss_D: 0.1738	 Loss_G: 5.4132	 D(x): 0.9802	 D(G(z)): 0.1342 / 0.0067 take_time: 2472s
+[14/20]	[400/1583]	 Loss_D: 0.0937	 Loss_G: 4.9813	 D(x): 0.9461	 D(G(z)): 0.0337 / 0.0126 take_time: 2483s
+[14/20]	[500/1583]	 Loss_D: 0.4028	 Loss_G: 1.8684	 D(x): 0.7581	 D(G(z)): 0.0742 / 0.2049 take_time: 2494s
+[14/20]	[600/1583]	 Loss_D: 0.4805	 Loss_G: 7.7530	 D(x): 0.9954	 D(G(z)): 0.3381 / 0.0008 take_time: 2505s
+[14/20]	[700/1583]	 Loss_D: 0.2022	 Loss_G: 3.2470	 D(x): 0.8529	 D(G(z)): 0.0202 / 0.0674 take_time: 2517s
+[14/20]	[800/1583]	 Loss_D: 0.0856	 Loss_G: 4.1858	 D(x): 0.9782	 D(G(z)): 0.0582 / 0.0230 take_time: 2528s
+[14/20]	[900/1583]	 Loss_D: 2.1372	 Loss_G: 1.4331	 D(x): 0.2073	 D(G(z)): 0.0061 / 0.3410 take_time: 2539s
+[14/20]	[1000/1583]	 Loss_D: 0.2272	 Loss_G: 2.9928	 D(x): 0.8478	 D(G(z)): 0.0378 / 0.0809 take_time: 2550s
+[14/20]	[1100/1583]	 Loss_D: 0.3423	 Loss_G: 2.9691	 D(x): 0.7840	 D(G(z)): 0.0400 / 0.0932 take_time: 2561s
+[14/20]	[1200/1583]	 Loss_D: 0.4986	 Loss_G: 2.5924	 D(x): 0.6633	 D(G(z)): 0.0051 / 0.1225 take_time: 2572s
+[14/20]	[1300/1583]	 Loss_D: 0.2046	 Loss_G: 3.2525	 D(x): 0.8700	 D(G(z)): 0.0389 / 0.0665 take_time: 2583s
+[14/20]	[1400/1583]	 Loss_D: 0.2141	 Loss_G: 3.3292	 D(x): 0.8704	 D(G(z)): 0.0605 / 0.0601 take_time: 2594s
+[14/20]	[1500/1583]	 Loss_D: 0.2508	 Loss_G: 3.0891	 D(x): 0.8528	 D(G(z)): 0.0648 / 0.0770 take_time: 2605s
+[15/20]	[0/1583]	 Loss_D: 0.1976	 Loss_G: 2.8314	 D(x): 0.8505	 D(G(z)): 0.0232 / 0.0948 take_time: 2614s
+[15/20]	[100/1583]	 Loss_D: 0.0981	 Loss_G: 4.0905	 D(x): 0.9317	 D(G(z)): 0.0221 / 0.0320 take_time: 2625s
+[15/20]	[200/1583]	 Loss_D: 0.1118	 Loss_G: 5.0499	 D(x): 0.9877	 D(G(z)): 0.0868 / 0.0106 take_time: 2636s
+[15/20]	[300/1583]	 Loss_D: 0.2701	 Loss_G: 4.9426	 D(x): 0.9322	 D(G(z)): 0.1557 / 0.0122 take_time: 2647s
+[15/20]	[400/1583]	 Loss_D: 0.1679	 Loss_G: 4.4470	 D(x): 0.9790	 D(G(z)): 0.1275 / 0.0191 take_time: 2658s
+[15/20]	[500/1583]	 Loss_D: 0.0963	 Loss_G: 4.5839	 D(x): 0.9677	 D(G(z)): 0.0550 / 0.0166 take_time: 2670s
+[15/20]	[600/1583]	 Loss_D: 0.2159	 Loss_G: 5.1475	 D(x): 0.9695	 D(G(z)): 0.1532 / 0.0094 take_time: 2681s
+[15/20]	[700/1583]	 Loss_D: 0.0864	 Loss_G: 4.8353	 D(x): 0.9844	 D(G(z)): 0.0638 / 0.0132 take_time: 2692s
+[15/20]	[800/1583]	 Loss_D: 0.8227	 Loss_G: 2.2528	 D(x): 0.6247	 D(G(z)): 0.1815 / 0.1584 take_time: 2703s
+[15/20]	[900/1583]	 Loss_D: 0.2208	 Loss_G: 2.5235	 D(x): 0.8674	 D(G(z)): 0.0521 / 0.1224 take_time: 2714s
+[15/20]	[1000/1583]	 Loss_D: 0.2463	 Loss_G: 4.0898	 D(x): 0.8448	 D(G(z)): 0.0372 / 0.0330 take_time: 2725s
+[15/20]	[1100/1583]	 Loss_D: 0.0778	 Loss_G: 4.0886	 D(x): 0.9597	 D(G(z)): 0.0334 / 0.0309 take_time: 2736s
+[15/20]	[1200/1583]	 Loss_D: 0.4334	 Loss_G: 2.6630	 D(x): 0.7870	 D(G(z)): 0.1182 / 0.1325 take_time: 2747s
+[15/20]	[1300/1583]	 Loss_D: 1.5068	 Loss_G: 1.3682	 D(x): 0.3320	 D(G(z)): 0.0166 / 0.3581 take_time: 2758s
+[15/20]	[1400/1583]	 Loss_D: 0.3374	 Loss_G: 2.1859	 D(x): 0.7592	 D(G(z)): 0.0242 / 0.1699 take_time: 2769s
+[15/20]	[1500/1583]	 Loss_D: 0.1593	 Loss_G: 4.8882	 D(x): 0.9533	 D(G(z)): 0.0947 / 0.0117 take_time: 2780s
+[16/20]	[0/1583]	 Loss_D: 0.1160	 Loss_G: 3.8414	 D(x): 0.9174	 D(G(z)): 0.0201 / 0.0372 take_time: 2789s
+[16/20]	[100/1583]	 Loss_D: 0.2372	 Loss_G: 5.0427	 D(x): 0.9680	 D(G(z)): 0.1586 / 0.0120 take_time: 2800s
+[16/20]	[200/1583]	 Loss_D: 0.1324	 Loss_G: 4.7745	 D(x): 0.9678	 D(G(z)): 0.0816 / 0.0137 take_time: 2811s
+[16/20]	[300/1583]	 Loss_D: 0.9011	 Loss_G: 3.1179	 D(x): 0.7885	 D(G(z)): 0.4178 / 0.0606 take_time: 2822s
+[16/20]	[400/1583]	 Loss_D: 0.8270	 Loss_G: 1.2585	 D(x): 0.5300	 D(G(z)): 0.0232 / 0.3779 take_time: 2833s
+[16/20]	[500/1583]	 Loss_D: 0.1821	 Loss_G: 3.4731	 D(x): 0.8773	 D(G(z)): 0.0346 / 0.0603 take_time: 2844s
+[16/20]	[600/1583]	 Loss_D: 0.1001	 Loss_G: 4.1392	 D(x): 0.9688	 D(G(z)): 0.0626 / 0.0271 take_time: 2855s
+[16/20]	[700/1583]	 Loss_D: 0.1904	 Loss_G: 3.0795	 D(x): 0.8970	 D(G(z)): 0.0623 / 0.0858 take_time: 2866s
+[16/20]	[800/1583]	 Loss_D: 0.1026	 Loss_G: 5.3235	 D(x): 0.9860	 D(G(z)): 0.0744 / 0.0084 take_time: 2877s
+[16/20]	[900/1583]	 Loss_D: 0.2607	 Loss_G: 3.1978	 D(x): 0.8341	 D(G(z)): 0.0518 / 0.0775 take_time: 2888s
+[16/20]	[1000/1583]	 Loss_D: 0.2370	 Loss_G: 3.2376	 D(x): 0.9164	 D(G(z)): 0.1188 / 0.0647 take_time: 2899s
+[16/20]	[1100/1583]	 Loss_D: 0.0750	 Loss_G: 4.7732	 D(x): 0.9566	 D(G(z)): 0.0272 / 0.0154 take_time: 2910s
+[16/20]	[1200/1583]	 Loss_D: 0.2603	 Loss_G: 2.9883	 D(x): 0.8333	 D(G(z)): 0.0489 / 0.0914 take_time: 2921s
+[16/20]	[1300/1583]	 Loss_D: 0.1229	 Loss_G: 4.0754	 D(x): 0.9134	 D(G(z)): 0.0244 / 0.0293 take_time: 2932s
+[16/20]	[1400/1583]	 Loss_D: 1.2612	 Loss_G: 1.9995	 D(x): 0.3893	 D(G(z)): 0.0056 / 0.2163 take_time: 2943s
+[16/20]	[1500/1583]	 Loss_D: 0.1596	 Loss_G: 3.3811	 D(x): 0.9138	 D(G(z)): 0.0561 / 0.0602 take_time: 2954s
+[17/20]	[0/1583]	 Loss_D: 0.5822	 Loss_G: 7.9011	 D(x): 0.9561	 D(G(z)): 0.3531 / 0.0007 take_time: 2963s
+[17/20]	[100/1583]	 Loss_D: 0.1235	 Loss_G: 4.6521	 D(x): 0.9799	 D(G(z)): 0.0902 / 0.0156 take_time: 2974s
+[17/20]	[200/1583]	 Loss_D: 0.1325	 Loss_G: 4.7243	 D(x): 0.9328	 D(G(z)): 0.0519 / 0.0169 take_time: 2985s
+[17/20]	[300/1583]	 Loss_D: 0.7929	 Loss_G: 0.9056	 D(x): 0.5327	 D(G(z)): 0.0115 / 0.5033 take_time: 2996s
+[17/20]	[400/1583]	 Loss_D: 0.3704	 Loss_G: 2.5474	 D(x): 0.8364	 D(G(z)): 0.1391 / 0.1239 take_time: 3007s
+[17/20]	[500/1583]	 Loss_D: 0.6643	 Loss_G: 8.1048	 D(x): 0.9878	 D(G(z)): 0.4066 / 0.0006 take_time: 3018s
+[17/20]	[600/1583]	 Loss_D: 0.0705	 Loss_G: 4.9203	 D(x): 0.9701	 D(G(z)): 0.0370 / 0.0165 take_time: 3029s
+[17/20]	[700/1583]	 Loss_D: 0.1957	 Loss_G: 2.3329	 D(x): 0.8534	 D(G(z)): 0.0169 / 0.1704 take_time: 3040s
+[17/20]	[800/1583]	 Loss_D: 0.1395	 Loss_G: 5.1185	 D(x): 0.9688	 D(G(z)): 0.0852 / 0.0109 take_time: 3051s
+[17/20]	[900/1583]	 Loss_D: 1.0280	 Loss_G: 3.2161	 D(x): 0.8687	 D(G(z)): 0.4844 / 0.0627 take_time: 3062s
+[17/20]	[1000/1583]	 Loss_D: 0.3106	 Loss_G: 7.7027	 D(x): 0.9888	 D(G(z)): 0.2175 / 0.0008 take_time: 3073s
+[17/20]	[1100/1583]	 Loss_D: 0.3568	 Loss_G: 2.1981	 D(x): 0.7420	 D(G(z)): 0.0048 / 0.1805 take_time: 3084s
+[17/20]	[1200/1583]	 Loss_D: 0.1258	 Loss_G: 4.3195	 D(x): 0.9509	 D(G(z)): 0.0615 / 0.0259 take_time: 3095s
+[17/20]	[1300/1583]	 Loss_D: 0.6629	 Loss_G: 6.8922	 D(x): 0.9556	 D(G(z)): 0.3857 / 0.0019 take_time: 3106s
+[17/20]	[1400/1583]	 Loss_D: 0.1179	 Loss_G: 4.3371	 D(x): 0.9571	 D(G(z)): 0.0666 / 0.0250 take_time: 3117s
+[17/20]	[1500/1583]	 Loss_D: 0.1772	 Loss_G: 5.7599	 D(x): 0.9952	 D(G(z)): 0.1447 / 0.0045 take_time: 3128s
+[18/20]	[0/1583]	 Loss_D: 0.3255	 Loss_G: 1.5219	 D(x): 0.7627	 D(G(z)): 0.0093 / 0.3089 take_time: 3137s
+[18/20]	[100/1583]	 Loss_D: 0.0860	 Loss_G: 4.5986	 D(x): 0.9654	 D(G(z)): 0.0469 / 0.0183 take_time: 3148s
+[18/20]	[200/1583]	 Loss_D: 0.0479	 Loss_G: 4.9392	 D(x): 0.9843	 D(G(z)): 0.0300 / 0.0154 take_time: 3159s
+[18/20]	[300/1583]	 Loss_D: 0.6667	 Loss_G: 0.6914	 D(x): 0.6228	 D(G(z)): 0.0089 / 0.5723 take_time: 3170s
+[18/20]	[400/1583]	 Loss_D: 0.1539	 Loss_G: 4.1470	 D(x): 0.9361	 D(G(z)): 0.0634 / 0.0291 take_time: 3181s
+[18/20]	[500/1583]	 Loss_D: 0.4644	 Loss_G: 7.0366	 D(x): 0.9884	 D(G(z)): 0.3047 / 0.0016 take_time: 3192s
+[18/20]	[600/1583]	 Loss_D: 0.1380	 Loss_G: 3.5633	 D(x): 0.9103	 D(G(z)): 0.0330 / 0.0564 take_time: 3203s
+[18/20]	[700/1583]	 Loss_D: 0.8966	 Loss_G: 1.8732	 D(x): 0.5036	 D(G(z)): 0.0017 / 0.2428 take_time: 3214s
+[18/20]	[800/1583]	 Loss_D: 0.1616	 Loss_G: 3.3459	 D(x): 0.8817	 D(G(z)): 0.0215 / 0.0653 take_time: 3225s
+[18/20]	[900/1583]	 Loss_D: 0.2430	 Loss_G: 3.5285	 D(x): 0.8689	 D(G(z)): 0.0678 / 0.0562 take_time: 3236s
+[18/20]	[1000/1583]	 Loss_D: 0.1400	 Loss_G: 4.0321	 D(x): 0.9147	 D(G(z)): 0.0378 / 0.0315 take_time: 3247s
+[18/20]	[1100/1583]	 Loss_D: 0.0773	 Loss_G: 4.7053	 D(x): 0.9436	 D(G(z)): 0.0164 / 0.0192 take_time: 3258s
+[18/20]	[1200/1583]	 Loss_D: 4.3228	 Loss_G: 7.1319	 D(x): 0.9991	 D(G(z)): 0.9751 / 0.0022 take_time: 3269s
+[18/20]	[1300/1583]	 Loss_D: 0.3999	 Loss_G: 1.2338	 D(x): 0.7467	 D(G(z)): 0.0455 / 0.4051 take_time: 3280s
+[18/20]	[1400/1583]	 Loss_D: 0.1619	 Loss_G: 4.6925	 D(x): 0.9752	 D(G(z)): 0.1099 / 0.0182 take_time: 3291s
+[18/20]	[1500/1583]	 Loss_D: 0.2462	 Loss_G: 2.8038	 D(x): 0.8242	 D(G(z)): 0.0278 / 0.1176 take_time: 3302s
+[19/20]	[0/1583]	 Loss_D: 0.0890	 Loss_G: 4.2762	 D(x): 0.9440	 D(G(z)): 0.0271 / 0.0249 take_time: 3311s
+[19/20]	[100/1583]	 Loss_D: 0.1678	 Loss_G: 3.6184	 D(x): 0.8951	 D(G(z)): 0.0326 / 0.0573 take_time: 3322s
+[19/20]	[200/1583]	 Loss_D: 0.1150	 Loss_G: 5.4303	 D(x): 0.9880	 D(G(z)): 0.0904 / 0.0082 take_time: 3333s
+[19/20]	[300/1583]	 Loss_D: 0.8586	 Loss_G: 2.0502	 D(x): 0.5209	 D(G(z)): 0.0051 / 0.2272 take_time: 3344s
+[19/20]	[400/1583]	 Loss_D: 0.2952	 Loss_G: 6.4756	 D(x): 0.9735	 D(G(z)): 0.2070 / 0.0026 take_time: 3356s
+[19/20]	[500/1583]	 Loss_D: 0.0633	 Loss_G: 4.8763	 D(x): 0.9548	 D(G(z)): 0.0138 / 0.0168 take_time: 3367s
+[19/20]	[600/1583]	 Loss_D: 0.0957	 Loss_G: 4.7137	 D(x): 0.9678	 D(G(z)): 0.0548 / 0.0172 take_time: 3378s
+[19/20]	[700/1583]	 Loss_D: 0.1400	 Loss_G: 4.3259	 D(x): 0.9407	 D(G(z)): 0.0579 / 0.0273 take_time: 3389s
+[19/20]	[800/1583]	 Loss_D: 0.1049	 Loss_G: 4.2489	 D(x): 0.9379	 D(G(z)): 0.0339 / 0.0287 take_time: 3400s
+[19/20]	[900/1583]	 Loss_D: 0.0984	 Loss_G: 4.6062	 D(x): 0.9302	 D(G(z)): 0.0208 / 0.0202 take_time: 3411s
+[19/20]	[1000/1583]	 Loss_D: 1.7504	 Loss_G: 6.5346	 D(x): 0.9747	 D(G(z)): 0.7393 / 0.0035 take_time: 3422s
+[19/20]	[1100/1583]	 Loss_D: 0.5863	 Loss_G: 2.3371	 D(x): 0.6427	 D(G(z)): 0.0099 / 0.1791 take_time: 3433s
+[19/20]	[1200/1583]	 Loss_D: 0.2851	 Loss_G: 2.9447	 D(x): 0.8526	 D(G(z)): 0.0893 / 0.0977 take_time: 3444s
+[19/20]	[1300/1583]	 Loss_D: 0.0751	 Loss_G: 4.3895	 D(x): 0.9579	 D(G(z)): 0.0285 / 0.0232 take_time: 3455s
+[19/20]	[1400/1583]	 Loss_D: 1.9698	 Loss_G: 7.1672	 D(x): 0.9996	 D(G(z)): 0.7767 / 0.0025 take_time: 3466s
+[19/20]	[1500/1583]	 Loss_D: 0.0886	 Loss_G: 4.4165	 D(x): 0.9494	 D(G(z)): 0.0271 / 0.0234 take_time: 3477s
