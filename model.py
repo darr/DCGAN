@@ -3,7 +3,7 @@
 #####################################
 # File name : model.py
 # Create date : 2019-01-24 17:00
-# Modified date : 2019-01-28 17:34
+# Modified date : 2019-01-29 00:43
 # Author : DARREN
 # Describe : not set
 # Email : lzygzh@126.com
@@ -11,7 +11,6 @@
 from __future__ import division
 from __future__ import print_function
 
-#import os
 import random
 import torch
 import torch.nn as nn
